@@ -54,7 +54,7 @@ export default function App() {
         >
           <div className="relative z-10">
             <h2 className="text-2xl font-bold tracking-tight mb-1 text-thxbai-accent">Minecraft Server</h2>
-            <p className="text-thxbai-muted text-lg font-medium italic">survival.kthxbai.xyz</p>
+            <p className="text-thxbai-muted text-lg font-medium italic">ligma.kthxbai.xyz</p>
           </div>
           <div className="flex flex-col items-end relative z-10">
             <span className="text-5xl font-black tracking-tighter">12<span className="text-sm text-thxbai-muted font-normal ml-1">/50</span></span>
@@ -78,7 +78,7 @@ export default function App() {
             work here.
           </h3>
           <p className="text-thxbai-muted text-xl max-w-sm font-medium leading-relaxed">
-            Developer and architect crafting high-fidelity interfaces and gaming communities.
+            There's supposed to be a cool text here, but I'm not that creative just yet.
           </p>
         </motion.div>
 
