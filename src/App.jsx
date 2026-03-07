@@ -7,19 +7,36 @@ export default function App() {
   // CONFIGURATION
   const DISCORD_INVITE_CODE = "kthxbai"; 
   const DISCORD_INVITE_LINK = `https://discord.gg/${DISCORD_INVITE_CODE}`;
+  const MC_SERVER_IP = "5.39.17.26";
+  const MC_SERVER_PORT = "20387";
 
   const [totalMembers, setTotalMembers] = useState(0);
+  const [mcPlayers, setMcPlayers] = useState({ online: 0, max: 0 });
 
-  // Fetch live Discord data using the Invite API for total member count
+  // Fetch Discord Stats
   useEffect(() => {
     fetch(`https://discord.com/api/v9/invites/${DISCORD_INVITE_CODE}?with_counts=true`)
       .then((res) => res.json())
       .then((data) => {
-        // approximate_member_count includes all members (online + offline)
         setTotalMembers(data.approximate_member_count || 0);
       })
       .catch((err) => console.error("Error fetching Discord status:", err));
   }, [DISCORD_INVITE_CODE]);
+
+  // Fetch Minecraft Stats (Keeps your IP hidden from the UI)
+  useEffect(() => {
+    fetch(`https://mcapi.us/server/status?ip=${MC_SERVER_IP}&port=${MC_SERVER_PORT}`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.status === "success") {
+          setMcPlayers({
+            online: data.players.now,
+            max: data.players.max
+          });
+        }
+      })
+      .catch((err) => console.error("Error fetching MC status:", err));
+  }, []);
 
   return (
     <div className="min-h-screen bg-thxbai-dark text-white font-sans selection:bg-thxbai-accent/40 p-4 md:p-12 selection:text-white relative">
@@ -45,7 +62,7 @@ export default function App() {
           </p>
         </motion.div>
 
-        {/* Status Display */}
+        {/* Minecraft Status Display (IP Hidden) */}
         <motion.div 
           initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }}
           transition={{ ...springConfig, delay: 0.1 }}
@@ -53,13 +70,17 @@ export default function App() {
           className="md:col-span-8 glass-card rounded-[2.5rem] p-10 flex items-center justify-between overflow-hidden relative"
         >
           <div className="relative z-10">
-            <h2 className="text-2xl font-bold tracking-tight mb-1 text-thxbai-accent">Minecraft Server</h2>
-            <p className="text-thxbai-muted text-lg font-medium italic">ligma.kthxbai.xyz</p>
+            <h2 className="text-2xl font-bold tracking-tight mb-1 text-thxbai-accent">The Project</h2>
+            <p className="text-thxbai-muted text-lg font-medium italic max-w-[280px] leading-tight">
+              Alpha Minecraft with a modern twist.
+            </p>
           </div>
           <div className="flex flex-col items-end relative z-10">
-            <span className="text-5xl font-black tracking-tighter">12<span className="text-sm text-thxbai-muted font-normal ml-1">/50</span></span>
+            <span className="text-5xl font-black tracking-tighter">
+              {mcPlayers.online}<span className="text-sm text-thxbai-muted font-normal ml-1">/{mcPlayers.max || 50}</span>
+            </span>
             <span className="flex items-center gap-2 text-[10px] uppercase font-black text-green-500 tracking-[0.2em] mt-2">
-              <span className="w-2 h-2 bg-green-500 rounded-full animate-ping" /> Online
+              <span className="w-2 h-2 bg-green-500 rounded-full animate-ping" /> Players Active
             </span>
           </div>
         </motion.div>
@@ -84,7 +105,6 @@ export default function App() {
 
         {/* Social & Meta */}
         <div className="md:col-span-5 grid grid-rows-2 gap-5">
-          {/* Discord Card - Now fetching total member count */}
           <motion.a 
             href={DISCORD_INVITE_LINK} 
             target="_blank"
