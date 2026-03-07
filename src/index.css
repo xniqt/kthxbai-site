@@ -1,1 +1,9 @@
 @import "tailwindcss";
+
+@theme {
+  /* Noguchi Purple Palette */
+  --color-noguchi-dark: #1e202c;
+  --color-noguchi-charcoal: #31323e;
+  --color-noguchi-purple: #60519b;
+  --color-noguchi-light: #bfc0d1;
+}
