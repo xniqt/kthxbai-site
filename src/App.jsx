@@ -70,9 +70,9 @@ export default function App() {
           className="md:col-span-8 glass-card rounded-[2.5rem] p-10 flex items-center justify-between overflow-hidden relative"
         >
           <div className="relative z-10">
-            <h2 className="text-2xl font-bold tracking-tight mb-1 text-thxbai-accent">The Project</h2>
+            <h2 className="text-2xl font-bold tracking-tight mb-1 text-thxbai-accent">Minecraft Server</h2>
             <p className="text-thxbai-muted text-lg font-medium italic max-w-[280px] leading-tight">
-              Alpha Minecraft with a modern twist.
+              Current Event: Alpha Minecraft with modern twists.
             </p>
           </div>
           <div className="flex flex-col items-end relative z-10">
@@ -80,7 +80,7 @@ export default function App() {
               {mcPlayers.online}<span className="text-sm text-thxbai-muted font-normal ml-1">/{mcPlayers.max || 50}</span>
             </span>
             <span className="flex items-center gap-2 text-[10px] uppercase font-black text-green-500 tracking-[0.2em] mt-2">
-              <span className="w-2 h-2 bg-green-500 rounded-full animate-ping" /> Players Active
+              <span className="w-2 h-2 bg-green-500 rounded-full animate-ping" /> Online
             </span>
           </div>
         </motion.div>
@@ -129,10 +129,10 @@ export default function App() {
             whileHover={{ y: -5 }}
             className="glass-card rounded-[2.5rem] p-8 flex flex-col justify-between border-b-4 border-b-thxbai-accent/30"
           >
-            <h4 className="text-xl font-bold italic">Latest Project</h4>
+            <h4 className="text-xl font-bold italic">Latest Projects</h4>
             <div className="flex justify-between items-end">
                 <p className="text-sm text-thxbai-muted font-medium uppercase tracking-widest">kthxbai site</p>
-                <span className="text-[10px] text-thxbai-accent font-bold px-2 py-1 bg-thxbai-accent/10 rounded">v1.0.4</span>
+                <span className="text-[10px] text-thxbai-accent font-bold px-2 py-1 bg-thxbai-accent/10 rounded">v1.0.5</span>
             </div>
           </motion.div>
         </div>
