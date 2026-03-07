@@ -1,8 +1,26 @@
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 
 const springConfig = { type: "spring", stiffness: 400, damping: 30 };
 
 export default function App() {
+  // CONFIGURATION: Replace these with your actual details
+  const DISCORD_SERVER_ID = "1366304614072451092"; 
+  const DISCORD_INVITE_LINK = "https://discord.gg/kthxbai";
+
+  const [memberCount, setMemberCount] = useState(0);
+
+  // Fetch live Discord data on component mount
+  useEffect(() => {
+    fetch(`https://discord.com/api/guilds/${DISCORD_SERVER_ID}/widget.json`)
+      .then((res) => res.json())
+      .then((data) => {
+        // 'presence_count' reflects the number of online/active members
+        setMemberCount(data.presence_count || 0);
+      })
+      .catch((err) => console.error("Error fetching Discord status:", err));
+  }, [DISCORD_SERVER_ID]);
+
   return (
     <div className="min-h-screen bg-thxbai-dark text-white font-sans selection:bg-thxbai-accent/40 p-4 md:p-12 selection:text-white relative">
       
@@ -23,7 +41,7 @@ export default function App() {
         >
           <h1 className="text-6xl font-black tracking-tighter italic mb-3">kthxbai</h1>
           <p className="text-thxbai-muted text-xs font-bold tracking-[0.3em] uppercase opacity-60">
-            Est. 2024 // Systems
+            Est. 2026 // i hate it here
           </p>
         </motion.div>
 
@@ -55,9 +73,9 @@ export default function App() {
         >
           <div className="w-12 h-[2px] bg-thxbai-accent mb-8" />
           <h3 className="text-5xl font-bold leading-[1.1] mb-8 tracking-tight">
-            Designing the <br /> 
-            <span className="text-thxbai-muted/40 italic">future of</span> <br /> 
-            digital play.
+            I don't know <br /> 
+            <span className="text-thxbai-muted/40 italic">i just..</span> <br /> 
+            work here.
           </h3>
           <p className="text-thxbai-muted text-xl max-w-sm font-medium leading-relaxed">
             Developer and architect crafting high-fidelity interfaces and gaming communities.
@@ -66,14 +84,21 @@ export default function App() {
 
         {/* Social & Meta */}
         <div className="md:col-span-5 grid grid-rows-2 gap-5">
+          {/* UPDATED DISCORD FIELD */}
           <motion.a 
-            href="https://discord.gg/yourlink" target="_blank"
+            href={DISCORD_INVITE_LINK} 
+            target="_blank"
+            rel="noopener noreferrer"
             whileHover={{ y: -5, backgroundColor: "rgba(99, 102, 241, 0.15)" }}
             className="glass-card rounded-[2.5rem] p-8 flex items-center justify-between group transition-all duration-300"
           >
             <div>
-               <span className="text-xs font-bold text-thxbai-accent uppercase tracking-[0.2em] block mb-1">Community</span>
-               <span className="text-2xl font-bold italic">Discord</span>
+               <span className="text-xs font-bold text-thxbai-accent uppercase tracking-[0.2em] block mb-1">Join Community</span>
+               <span className="text-2xl font-bold italic block">Discord</span>
+               <span className="text-[10px] text-thxbai-muted font-bold uppercase tracking-widest mt-2 flex items-center gap-1.5">
+                 <span className="w-1 h-1 bg-thxbai-accent rounded-full" />
+                 {memberCount} Members Online
+               </span>
             </div>
             <div className="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all">
               <span className="text-xl">↗</span>
@@ -86,7 +111,7 @@ export default function App() {
           >
             <h4 className="text-xl font-bold italic">Latest Project</h4>
             <div className="flex justify-between items-end">
-                <p className="text-sm text-thxbai-muted font-medium uppercase tracking-widest">Aelios Clone</p>
+                <p className="text-sm text-thxbai-muted font-medium uppercase tracking-widest">kthxbai site</p>
                 <span className="text-[10px] text-thxbai-accent font-bold px-2 py-1 bg-thxbai-accent/10 rounded">v1.0.4</span>
             </div>
           </motion.div>
