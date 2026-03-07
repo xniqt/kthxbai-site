@@ -4,22 +4,22 @@ import { useState, useEffect } from "react";
 const springConfig = { type: "spring", stiffness: 400, damping: 30 };
 
 export default function App() {
-  // CONFIGURATION: Replace these with your actual details
-  const DISCORD_SERVER_ID = "1366304614072451092"; 
-  const DISCORD_INVITE_LINK = "https://discord.gg/kthxbai";
+  // CONFIGURATION
+  const DISCORD_INVITE_CODE = "kthxbai"; 
+  const DISCORD_INVITE_LINK = `https://discord.gg/${DISCORD_INVITE_CODE}`;
 
-  const [memberCount, setMemberCount] = useState(0);
+  const [totalMembers, setTotalMembers] = useState(0);
 
-  // Fetch live Discord data on component mount
+  // Fetch live Discord data using the Invite API for total member count
   useEffect(() => {
-    fetch(`https://discord.com/api/guilds/${DISCORD_SERVER_ID}/widget.json`)
+    fetch(`https://discord.com/api/v9/invites/${DISCORD_INVITE_CODE}?with_counts=true`)
       .then((res) => res.json())
       .then((data) => {
-        // 'presence_count' reflects the number of online/active members
-        setMemberCount(data.presence_count || 0);
+        // approximate_member_count includes all members (online + offline)
+        setTotalMembers(data.approximate_member_count || 0);
       })
       .catch((err) => console.error("Error fetching Discord status:", err));
-  }, [DISCORD_SERVER_ID]);
+  }, [DISCORD_INVITE_CODE]);
 
   return (
     <div className="min-h-screen bg-thxbai-dark text-white font-sans selection:bg-thxbai-accent/40 p-4 md:p-12 selection:text-white relative">
@@ -84,7 +84,7 @@ export default function App() {
 
         {/* Social & Meta */}
         <div className="md:col-span-5 grid grid-rows-2 gap-5">
-          {/* UPDATED DISCORD FIELD */}
+          {/* Discord Card - Now fetching total member count */}
           <motion.a 
             href={DISCORD_INVITE_LINK} 
             target="_blank"
@@ -97,7 +97,7 @@ export default function App() {
                <span className="text-2xl font-bold italic block">Discord</span>
                <span className="text-[10px] text-thxbai-muted font-bold uppercase tracking-widest mt-2 flex items-center gap-1.5">
                  <span className="w-1 h-1 bg-thxbai-accent rounded-full" />
-                 {memberCount} Members Online
+                 {totalMembers} Total Members
                </span>
             </div>
             <div className="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all">
