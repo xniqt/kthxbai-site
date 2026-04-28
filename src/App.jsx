@@ -72,7 +72,7 @@ export default function App() {
           <div className="relative z-10">
             <h2 className="text-2xl font-bold tracking-tight mb-1 text-thxbai-accent">Minecraft Server</h2>
             <p className="text-thxbai-muted text-lg font-medium italic max-w-[280px] leading-tight">
-              Current Event: Alpha Minecraft with modern twists.
+              Current Event: Factions & Task list.
             </p>
           </div>
           <div className="flex flex-col items-end relative z-10">
