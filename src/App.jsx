@@ -87,8 +87,8 @@ export default function App() {
           className="md:col-span-8 glass-card rounded-[2.5rem] p-10 flex items-center justify-between overflow-hidden relative"
         >
           <div className="relative z-10">
-            <h2 className="text-2xl font-bold tracking-tight mb-1 text-thxbai-accent uppercase">The Project</h2>
-            <p className="text-thxbai-muted text-lg font-medium italic">Alpha with a modern twist.</p>
+            <h2 className="text-2xl font-bold tracking-tight mb-1 text-thxbai-accent uppercase">Femboy SMP</h2>
+            <p className="text-thxbai-muted text-lg font-medium italic">Factions & Tasks</p>
           </div>
           <div className="flex flex-col items-end relative z-10">
             <span className="text-5xl font-black tracking-tighter italic">
