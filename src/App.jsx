@@ -7,8 +7,8 @@ export default function App() {
   // CONFIGURATION
   const DISCORD_INVITE_CODE = "kthxbai"; 
   const DISCORD_INVITE_LINK = `https://discord.gg/${DISCORD_INVITE_CODE}`;
-  const MC_SERVER_IP = "5.39.17.26";
-  const MC_SERVER_PORT = "20387";
+  const MC_SERVER_IP = "199.115.72.77";
+  const MC_SERVER_PORT = "25565";
 
   const [totalMembers, setTotalMembers] = useState(0);
   const [mcPlayers, setMcPlayers] = useState({ online: 0, max: 0 });
