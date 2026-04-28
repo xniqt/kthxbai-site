@@ -18,7 +18,7 @@
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
 }
 
-/* Scoped Scrollbar Styling */
+/* Custom Scrollbar for Objectives list */
 .custom-scrollbar::-webkit-scrollbar {
   width: 4px;
 }

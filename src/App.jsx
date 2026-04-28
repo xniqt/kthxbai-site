@@ -13,11 +13,11 @@ export default function App() {
   // --- MANUAL LEADERBOARD DATA ---
   // Edit this list to update standings on the site
   const leaderboard = [
-    { name: "meow", members: "ultragaminggamer", score: 60 },
-    { name: "boo", members: "xniqt", score: 40 },
-    { name: "Solarflare", members: "ChaoticRylee", score: 40 },
-    { name: "melon", members: "Thunderstorm24", score: 40 },
-    { name: "Transgender", members: "WuvX", score: 40 },
+    { name: "meow", members: "ultragaminggamer", score: 65 },
+    { name: "boo", members: "xniqt", score: 45 },
+    { name: "Solarflare", members: "ChaoticRylee", score: 45 },
+    { name: "melon", members: "Thunderstorm24", score: 45 },
+    { name: "Transgender", members: "WuvX", score: 45 },
   ];
 
   const [totalMembers, setTotalMembers] = useState(0);
