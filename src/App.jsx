@@ -40,27 +40,27 @@ export default function App() {
     { 
       name: "meow", 
       members: "ultragaminggamer", 
-      completed: ["hq", "tame", "banner", "rod", "bee", "redstone"] // 5 + 10 + 10 + 10 + 10 + 15 = 60 pts
+      completed: ["hq"] // 5 + 10 + 10 + 10 + 10 + 15 = 60 pts
     },
     { 
       name: "boo", 
       members: "xniqt", 
-      completed: ["hq", "tame", "rod"] // 5 + 10 + 10 = 25 pts
+      completed: ["hq"] // 5 + 10 + 10 = 25 pts
     },
     { 
       name: "Solarflare", 
       members: "ChaoticRylee", 
-      completed: ["hq", "banner", "bee"] // 5 + 10 + 10 = 25 pts
+      completed: ["hq"] // 5 + 10 + 10 = 25 pts
     },
     { 
       name: "melon", 
       members: "Thunderstorm24", 
-      completed: ["hq", "tame", "rod"] 
+      completed: ["hq", "bee"] 
     },
     { 
       name: "Transgender", 
       members: "WuvX", 
-      completed: ["hq", "rod", "bee"] 
+      completed: ["hq"] 
     },
   ];
 
