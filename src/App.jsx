@@ -44,7 +44,7 @@ export default function App() {
     { 
       name: "boo", 
       members: "xniqt", 
-      completed: ["hq", "farm", "redstone", "egg", "heart"]
+      completed: ["hq", "farm", "redstone", "egg", "heart", "banner"]
     },
     { 
       name: "Solarflare", 
