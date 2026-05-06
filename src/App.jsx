@@ -252,7 +252,7 @@ export default function App() {
              <span className="text-xs font-bold text-thxbai-accent uppercase tracking-[0.2em] block mb-1">Join Community</span>
              <span className="text-3xl font-black italic block">Discord Server</span>
              <span className="text-xs text-thxbai-muted font-bold uppercase tracking-widest mt-2 flex items-center gap-1.5 opacity-60">
-               <span className="w-1.5 h-1.5 bg-thxbai-accent rounded-full" /> {totalMembers} Members in the void
+               <span className="w-1.5 h-1.5 bg-thxbai-accent rounded-full" /> {totalMembers} Members
              </span>
           </div>
           <div className="w-16 h-16 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all">→</div>
