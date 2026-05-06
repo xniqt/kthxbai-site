@@ -10,18 +10,79 @@ export default function App() {
   const MC_SERVER_IP = "199.115.72.77";
   const MC_SERVER_PORT = "25565";
 
-  // --- MANUAL LEADERBOARD DATA ---
-  // Edit this list to update standings on the site
-  const leaderboard = [
-    { name: "meow", members: "ultragaminggamer", score: 65 },
-    { name: "boo", members: "xniqt", score: 45 },
-    { name: "Solarflare", members: "ChaoticRylee", score: 45 },
-    { name: "melon", members: "Thunderstorm24", score: 45 },
-    { name: "Transgender", members: "WuvX", score: 45 },
+  // --- OBJECTIVES / TASK LIST ---
+  const tasks = [
+    { id: "hq", name: "Set up a faction HQ", pts: 5 },
+    { id: "tame", name: "Tame 3 different animals", pts: 10 },
+    { id: "banner", name: "Create a team banner", pts: 10 },
+    { id: "rod", name: "Get a maxed fishing rod", pts: 10 },
+    { id: "bee", name: "Own a baby bee", pts: 10 },
+    { id: "redstone", name: "Build redstone contraption", pts: 15 },
+    { id: "heart", name: "Get a Heart of the Sea", pts: 15 },
+    { id: "ender", name: "Obtain 12 Eyes of Ender", pts: 15 },
+    { id: "pumpkin", name: "Pumpkin house w/ cake floor", pts: 20 },
+    { id: "breath", name: "Obtain 16 Dragon’s Breath", pts: 20 },
+    { id: "farm", name: "Build automatic farm", pts: 25 },
+    { id: "map", name: "Map out a 3×3 area", pts: 25 },
+    { id: "creeper", name: "Obtain a Creeper Head", pts: 25 },
+    { id: "egg", name: "Obtain a Sniffer Egg", pts: 30 },
+    { id: "horse", name: "Obtain a Skeleton Horse", pts: 40 },
+    { id: "apple", name: "Enchanted Golden Apple", pts: 50 },
+    { id: "mace", name: "Obtain a Mace", pts: 60 },
+    { id: "armor", name: "Full Netherite Armor Set", pts: 80 },
+    { id: "beacons", name: "Build 4 maxed beacons", pts: 100 },
+    { id: "axolotl", name: "Obtain a Blue Axolotl", pts: 250 },
   ];
+
+  // --- MANUAL FACTIONS & COMPLETED TASKS DATA ---
+  // Simply add the task "id" to the completed array, and the site will calculate the scores automatically!
+  const factionsData = [
+    { 
+      name: "meow", 
+      members: "ultragaminggamer", 
+      completed: ["hq", "tame", "banner", "rod", "bee", "redstone"] // 5 + 10 + 10 + 10 + 10 + 15 = 60 pts
+    },
+    { 
+      name: "boo", 
+      members: "xniqt", 
+      completed: ["hq", "tame", "rod"] // 5 + 10 + 10 = 25 pts
+    },
+    { 
+      name: "Solarflare", 
+      members: "ChaoticRylee", 
+      completed: ["hq", "banner", "bee"] // 5 + 10 + 10 = 25 pts
+    },
+    { 
+      name: "melon", 
+      members: "Thunderstorm24", 
+      completed: ["hq", "tame", "rod"] 
+    },
+    { 
+      name: "Transgender", 
+      members: "WuvX", 
+      completed: ["hq", "rod", "bee"] 
+    },
+  ];
+
+  // Helper function to calculate points dynamically
+  const calculateScore = (completedIds) => {
+    return completedIds.reduce((total, taskId) => {
+      const task = tasks.find((t) => t.id === taskId);
+      return total + (task ? task.pts : 0);
+    }, 0);
+  };
+
+  // Automatically generate the sorted leaderboard based on actual task completions
+  const leaderboard = factionsData
+    .map((faction) => ({
+      ...faction,
+      score: calculateScore(faction.completed),
+    }))
+    .sort((a, b) => b.score - a.score);
 
   const [totalMembers, setTotalMembers] = useState(0);
   const [mcPlayers, setMcPlayers] = useState({ online: 0, max: 0 });
+  const [selectedFaction, setSelectedFaction] = useState(leaderboard[0]?.name || "");
 
   useEffect(() => {
     fetch(`https://discord.com/api/v9/invites/${DISCORD_INVITE_CODE}?with_counts=true`)
@@ -37,28 +98,8 @@ export default function App() {
       .catch((err) => console.error("Error MC:", err));
   }, []);
 
-  const tasks = [
-    { name: "Set up a faction HQ", pts: 5 },
-    { name: "Tame 3 different animals", pts: 10 },
-    { name: "Create a team banner", pts: 10 },
-    { name: "Get a maxed fishing rod", pts: 10 },
-    { name: "Own a baby bee", pts: 10 },
-    { name: "Build redstone contraption", pts: 15 },
-    { name: "Get a Heart of the Sea", pts: 15 },
-    { name: "Obtain 12 Eyes of Ender", pts: 15 },
-    { name: "Pumpkin house w/ cake floor", pts: 20 },
-    { name: "Obtain 16 Dragon’s Breath", pts: 20 },
-    { name: "Build automatic farm", pts: 25 },
-    { name: "Map out a 3×3 area", pts: 25 },
-    { name: "Obtain a Creeper Head", pts: 25 },
-    { name: "Obtain a Sniffer Egg", pts: 30 },
-    { name: "Obtain a Skeleton Horse", pts: 40 },
-    { name: "Enchanted Golden Apple", pts: 50 },
-    { name: "Obtain a Mace", pts: 60 },
-    { name: "Full Netherite Armor Set", pts: 80 },
-    { name: "Build 4 maxed beacons", pts: 100 },
-    { name: "Obtain a Blue Axolotl", pts: 250 },
-  ];
+  // Find the currently active faction for the task progress viewer
+  const activeFactionDetails = leaderboard.find((f) => f.name === selectedFaction);
 
   return (
     <div className="min-h-screen bg-thxbai-dark text-white font-sans selection:bg-thxbai-accent/40 p-4 md:p-12 selection:text-white relative">
@@ -119,6 +160,76 @@ export default function App() {
               </div>
             ))}
           </div>
+        </motion.div>
+
+        {/* NEW SECTION: FACTION COMPLETED TASKS TRACKER */}
+        <motion.div className="md:col-span-12 glass-card rounded-[3rem] p-10 border-l-4 border-l-emerald-500/30">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
+            <div>
+              <h3 className="text-3xl font-black italic uppercase tracking-tight">Faction Progress</h3>
+              <p className="text-thxbai-muted text-xs font-bold mt-1 uppercase tracking-widest opacity-60">Track completed objectives</p>
+            </div>
+            
+            {/* Interactive Faction Selector Tabs */}
+            <div className="flex flex-wrap gap-2">
+              {leaderboard.map((faction) => (
+                <button
+                  key={faction.name}
+                  onClick={() => setSelectedFaction(faction.name)}
+                  className={`px-4 py-2 rounded-xl text-xs font-black uppercase tracking-wider transition-all duration-200 cursor-pointer ${
+                    selectedFaction === faction.name
+                      ? "bg-thxbai-accent text-white shadow-lg"
+                      : "bg-white/[0.03] border border-white/5 text-thxbai-muted hover:bg-white/[0.08]"
+                  }`}
+                >
+                  {faction.name}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Progress Display */}
+          {activeFactionDetails && (
+            <div>
+              <div className="flex justify-between items-center mb-4">
+                <span className="text-xs font-black text-thxbai-muted uppercase tracking-widest">
+                  Completed {activeFactionDetails.completed.length} of {tasks.length} Tasks
+                </span>
+                <span className="text-sm font-black italic text-emerald-400">
+                  {Math.round((activeFactionDetails.completed.length / tasks.length) * 100)}% Complete
+                </span>
+              </div>
+              
+              {/* Grid showing checked off tasks for the selected faction */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+                {tasks.map((task) => {
+                  const isCompleted = activeFactionDetails.completed.includes(task.id);
+                  return (
+                    <div
+                      key={task.id}
+                      className={`flex justify-between items-center p-4 rounded-2xl border transition-all ${
+                        isCompleted
+                          ? "bg-emerald-500/5 border-emerald-500/20 text-emerald-400"
+                          : "bg-white/[0.01] border-white/5 text-thxbai-muted/40"
+                      }`}
+                    >
+                      <div className="flex items-center gap-3">
+                        <span className={`text-xs font-bold ${isCompleted ? "text-emerald-400" : "text-white/10"}`}>
+                          {isCompleted ? "✓" : "○"}
+                        </span>
+                        <span className="text-xs font-medium tracking-tight">{task.name}</span>
+                      </div>
+                      <span className={`text-[9px] font-black px-2 py-1 rounded ${
+                        isCompleted ? "bg-emerald-500/10" : "bg-white/[0.02]"
+                      }`}>
+                        {task.pts} PTS
+                      </span>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
         </motion.div>
 
         {/* Event Bio */}
