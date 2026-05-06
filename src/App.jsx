@@ -55,7 +55,7 @@ export default function App() {
     { 
       name: "melon", 
       members: "Thunderstorm24", 
-      completed: ["hq", "bee"] 
+      completed: ["hq", "bee", "pumpkin"] 
     },
     { 
       name: "Transgender", 
