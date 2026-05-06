@@ -40,22 +40,22 @@ export default function App() {
     { 
       name: "meow", 
       members: "ultragaminggamer", 
-      completed: ["hq"] // 5 + 10 + 10 + 10 + 10 + 15 = 60 pts
+      completed: ["hq"]
     },
     { 
       name: "boo", 
       members: "xniqt", 
-      completed: ["hq"] // 5 + 10 + 10 = 25 pts
+      completed: ["hq", "farm", "redstone"]
     },
     { 
       name: "Solarflare", 
       members: "ChaoticRylee", 
-      completed: ["hq"] // 5 + 10 + 10 = 25 pts
+      completed: ["hq"]
     },
     { 
       name: "melon", 
       members: "Thunderstorm24", 
-      completed: ["hq", "bee", "pumpkin"] 
+      completed: ["hq", "bee", "pumpkin", "horse", "farm"] 
     },
     { 
       name: "Transgender", 
