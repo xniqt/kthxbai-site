@@ -5,7 +5,7 @@ const springConfig = { type: "spring", stiffness: 400, damping: 30 };
 
 export default function App() {
   // CONFIGURATION
-  const DISCORD_INVITE_CODE = "kthxbai"; 
+  const DISCORD_INVITE_CODE = "femboy"; 
   const DISCORD_INVITE_LINK = `https://discord.gg/${DISCORD_INVITE_CODE}`;
   const MC_SERVER_IP = "199.115.72.77";
   const MC_SERVER_PORT = "25565";
