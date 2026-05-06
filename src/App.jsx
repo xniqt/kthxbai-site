@@ -35,7 +35,6 @@ export default function App() {
   ];
 
   // --- MANUAL FACTIONS & COMPLETED TASKS DATA ---
-  // Simply add the task "id" to the completed array, and the site will calculate the scores automatically!
   const factionsData = [
     { 
       name: "meow", 
@@ -72,7 +71,7 @@ export default function App() {
     }, 0);
   };
 
-  // Automatically generate the sorted leaderboard based on actual task completions
+  // Automatically generate the sorted leaderboard
   const leaderboard = factionsData
     .map((faction) => ({
       ...faction,
@@ -98,7 +97,6 @@ export default function App() {
       .catch((err) => console.error("Error MC:", err));
   }, []);
 
-  // Find the currently active faction for the task progress viewer
   const activeFactionDetails = leaderboard.find((f) => f.name === selectedFaction);
 
   return (
@@ -133,36 +131,52 @@ export default function App() {
           </div>
         </motion.div>
 
-        {/* LEADERBOARD CARD */}
-        <motion.div className="md:col-span-12 glass-card rounded-[3rem] p-10 border-t-4 border-t-yellow-500/20">
-          <div className="flex justify-between items-center mb-8">
-            <div>
-              <h3 className="text-3xl font-black italic uppercase tracking-tight">Leaderboard</h3>
-              <p className="text-thxbai-muted text-xs font-bold mt-1 uppercase tracking-widest opacity-60">Top 5 Factions</p>
+        {/* Event Bio (Now next to Leaderboard) */}
+        <motion.div className="md:col-span-7 glass-card rounded-[3rem] p-12 min-h-[420px] flex flex-col justify-between border-l-4 border-l-thxbai-accent">
+          <div>
+            <div className="flex items-center gap-3 mb-6">
+              <span className="px-3 py-1 rounded-full bg-thxbai-accent/20 text-thxbai-accent text-[10px] font-black uppercase tracking-widest">Ongoing Event</span>
+              <span className="text-thxbai-muted text-[10px] font-bold uppercase tracking-widest">Ends July 19</span>
             </div>
-            <div className="px-4 py-2 rounded-full bg-yellow-500/10 border border-yellow-500/20 text-yellow-500 text-xs font-black uppercase tracking-widest">Live Standings</div>
+            <h3 className="text-5xl font-black leading-[1.1] mb-6 tracking-tighter italic text-white uppercase">Faction <br /> Dominance.</h3>
+            <p className="text-thxbai-muted text-md max-w-md font-medium leading-relaxed mb-6">Gather your crew (max 4), build your base, and prepare for battle. Complete challenges to win Discord Nitro.</p>
+          </div>
+          <div className="grid grid-cols-2 gap-4 border-t border-white/5 pt-6">
+            <div><span className="block text-[10px] font-black text-thxbai-accent uppercase mb-1">Power System</span><p className="text-xs text-thxbai-muted">+20/member, -10/death</p></div>
+            <div><span className="block text-[10px] font-black text-thxbai-accent uppercase mb-1">Reward</span><p className="text-xs text-thxbai-muted italic font-bold text-white uppercase tracking-widest">Discord Nitro</p></div>
+          </div>
+        </motion.div>
+
+        {/* LEADERBOARD CARD (Now elegant and condensed to the right side) */}
+        <motion.div className="md:col-span-5 glass-card rounded-[3rem] p-8 border-t-4 border-t-yellow-500/20 flex flex-col justify-between min-h-[420px]">
+          <div className="flex justify-between items-center mb-4">
+            <div>
+              <h3 className="text-2xl font-black italic uppercase tracking-tight">Leaderboard</h3>
+              <p className="text-thxbai-muted text-[10px] font-bold mt-0.5 uppercase tracking-widest opacity-60">Top 5 Standings</p>
+            </div>
+            <div className="w-8 h-8 rounded-full bg-yellow-500/10 border border-yellow-500/20 flex items-center justify-center text-yellow-500 text-sm font-bold italic">★</div>
           </div>
           
-          <div className="grid grid-cols-1 gap-3">
+          <div className="space-y-2.5 overflow-y-auto pr-1 custom-scrollbar max-h-[300px]">
             {leaderboard.map((faction, idx) => (
-              <div key={idx} className={`flex justify-between items-center p-6 rounded-[2rem] border transition-all ${idx === 0 ? 'bg-yellow-500/5 border-yellow-500/20 shadow-[0_0_30px_rgba(234,179,8,0.05)]' : 'bg-white/[0.02] border-white/5'}`}>
-                <div className="flex items-center gap-6">
-                  <span className={`text-2xl font-black italic w-8 ${idx === 0 ? 'text-yellow-500' : 'text-thxbai-muted/40'}`}>#{idx + 1}</span>
+              <div key={idx} className={`flex justify-between items-center p-4 rounded-2xl border transition-all ${idx === 0 ? 'bg-yellow-500/5 border-yellow-500/20 shadow-[0_0_20px_rgba(234,179,8,0.03)]' : 'bg-white/[0.01] border-white/5'}`}>
+                <div className="flex items-center gap-4">
+                  <span className={`text-lg font-black italic w-6 ${idx === 0 ? 'text-yellow-500' : 'text-thxbai-muted/30'}`}>#{idx + 1}</span>
                   <div>
-                    <h4 className="text-xl font-bold tracking-tight text-white">{faction.name}</h4>
-                    <p className="text-[10px] text-thxbai-muted font-bold uppercase tracking-widest mt-1">{faction.members}</p>
+                    <h4 className="text-sm font-bold tracking-tight text-white">{faction.name}</h4>
+                    <p className="text-[9px] text-thxbai-muted font-bold uppercase tracking-widest opacity-70 truncate max-w-[120px]">{faction.members}</p>
                   </div>
                 </div>
                 <div className="text-right">
-                  <span className={`text-2xl font-black italic block ${idx === 0 ? 'text-yellow-500' : 'text-white'}`}>{faction.score}</span>
-                  <span className="text-[9px] font-black text-thxbai-muted uppercase tracking-[0.2em]">Points</span>
+                  <span className={`text-lg font-black italic block ${idx === 0 ? 'text-yellow-500' : 'text-white'}`}>{faction.score}</span>
+                  <span className="text-[8px] font-black text-thxbai-muted uppercase tracking-[0.2em]">Pts</span>
                 </div>
               </div>
             ))}
           </div>
         </motion.div>
 
-        {/* NEW SECTION: FACTION COMPLETED TASKS TRACKER */}
+        {/* FACTION COMPLETED TASKS TRACKER */}
         <motion.div className="md:col-span-12 glass-card rounded-[3rem] p-10 border-l-4 border-l-emerald-500/30">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
             <div>
@@ -230,37 +244,6 @@ export default function App() {
               </div>
             </div>
           )}
-        </motion.div>
-
-        {/* Event Bio */}
-        <motion.div className="md:col-span-7 glass-card rounded-[3rem] p-12 min-h-[450px] flex flex-col justify-between border-l-4 border-l-thxbai-accent">
-          <div>
-            <div className="flex items-center gap-3 mb-6">
-              <span className="px-3 py-1 rounded-full bg-thxbai-accent/20 text-thxbai-accent text-[10px] font-black uppercase tracking-widest">Ongoing Event</span>
-              <span className="text-thxbai-muted text-[10px] font-bold uppercase tracking-widest">Ends July 19</span>
-            </div>
-            <h3 className="text-5xl font-black leading-[1.1] mb-6 tracking-tighter italic text-white uppercase">Faction <br /> Dominance.</h3>
-            <p className="text-thxbai-muted text-lg max-w-md font-medium leading-relaxed mb-8">Gather your crew (max 4), build your base, and prepare for battle. Complete challenges to win Discord Nitro.</p>
-          </div>
-          <div className="grid grid-cols-2 gap-4 border-t border-white/5 pt-8">
-            <div><span className="block text-[10px] font-black text-thxbai-accent uppercase mb-1">Power System</span><p className="text-sm text-thxbai-muted">+20/member, -10/death</p></div>
-            <div><span className="block text-[10px] font-black text-thxbai-accent uppercase mb-1">Reward</span><p className="text-sm text-thxbai-muted italic font-bold text-white uppercase tracking-widest">Discord Nitro</p></div>
-          </div>
-        </motion.div>
-
-        {/* Objectives */}
-        <motion.div className="md:col-span-5 glass-card rounded-[3rem] p-8 flex flex-col h-[450px]">
-          <h4 className="text-xl font-black italic uppercase tracking-tight mb-6 px-2">Objectives</h4>
-          <div className="overflow-y-auto pr-2 custom-scrollbar">
-            <div className="space-y-3">
-              {tasks.map((task, idx) => (
-                <div key={idx} className="flex justify-between items-center p-4 rounded-2xl bg-white/[0.03] border border-white/5 hover:bg-white/[0.06] transition-colors group">
-                  <span className="text-sm font-medium text-thxbai-muted group-hover:text-white transition-colors">{task.name}</span>
-                  <span className="text-[10px] font-black text-thxbai-accent bg-thxbai-accent/10 px-2 py-1 rounded">{task.pts} PTS</span>
-                </div>
-              ))}
-            </div>
-          </div>
         </motion.div>
 
         {/* Discord Link */}
