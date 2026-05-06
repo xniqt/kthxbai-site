@@ -39,7 +39,7 @@ export default function App() {
     { 
       name: "meow", 
       members: "ultragaminggamer, KotaGG, raviolomood", 
-      completed: ["hq", "horse", "farm", "ender", "heart", "breath", "rod", "redstone", "tame", "banner", "pumpkin"]
+      completed: ["hq", "horse", "farm", "ender", "heart", "breath", "rod", "redstone", "tame", "banner", "pumpkin", "egg"]
     },
     { 
       name: "boo", 
