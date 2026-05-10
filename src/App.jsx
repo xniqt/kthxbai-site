@@ -38,7 +38,7 @@ export default function App() {
   const factionsData = [
     { 
       name: "meow", 
-      members: "ultragaminggamer, KotaGG, raviolomood", 
+      members: "ultragaminggamer, KotaGG, raviolomood, pendulesteak", 
       completed: ["hq", "horse", "farm", "ender", "heart", "breath", "rod", "redstone", "tame", 
         "banner", "pumpkin", "egg", "apple", "map", "creeper", "bee"]
     },
