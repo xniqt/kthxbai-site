@@ -39,7 +39,8 @@ export default function App() {
     { 
       name: "meow", 
       members: "ultragaminggamer, KotaGG, raviolomood", 
-      completed: ["hq", "horse", "farm", "ender", "heart", "breath", "rod", "redstone", "tame", "banner", "pumpkin", "egg", "apple", "map", "creeper"]
+      completed: ["hq", "horse", "farm", "ender", "heart", "breath", "rod", "redstone", "tame", 
+        "banner", "pumpkin", "egg", "apple", "map", "creeper", "bee"]
     },
     { 
       name: "boo", 
@@ -54,7 +55,8 @@ export default function App() {
     { 
       name: "melon", 
       members: "Thunderstorm24, Fet0921",
-      completed: ["hq", "bee", "pumpkin", "horse", "farm", "banner", "redstone", "ender", "heart", "map", "axolotl", "apple"] 
+      completed: ["hq", "bee", "pumpkin", "horse", "farm", "banner", "redstone", 
+        "ender", "heart", "map", "axolotl", "apple", "egg"]
     },
     { 
       name: "Transgender", 
