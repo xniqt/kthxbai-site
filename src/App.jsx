@@ -44,13 +44,8 @@ export default function App() {
     },
     { 
       name: "boo", 
-      members: "xniqt", 
+      members: "ChaoticRylee", 
       completed: ["hq", "farm", "redstone", "egg", "heart", "banner"]
-    },
-    { 
-      name: "Solarflare", 
-      members: "ChaoticRylee", z
-      completed: ["hq"]
     },
     { 
       name: "melon", 
