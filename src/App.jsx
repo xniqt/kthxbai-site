@@ -49,14 +49,14 @@ export default function App() {
     },
     { 
       name: "Solarflare", 
-      members: "ChaoticRylee", 
+      members: "ChaoticRylee", z
       completed: ["hq"]
     },
     { 
       name: "melon", 
       members: "Thunderstorm24, Fet0921",
       completed: ["hq", "bee", "pumpkin", "horse", "farm", "banner", "redstone", 
-        "ender", "heart", "map", "axolotl", "apple", "egg"]
+        "ender", "heart", "map", "axolotl", "apple", "egg", "beacons", "rod"]
     },
     { 
       name: "Transgender", 
