@@ -40,7 +40,7 @@ export default function App() {
       name: "meow", 
       members: "ultragaminggamer, KotaGG, raviolomood, pendulesteak", 
       completed: ["hq", "horse", "farm", "ender", "heart", "breath", "rod", "redstone", "tame", 
-        "banner", "pumpkin", "egg", "apple", "map", "creeper", "bee", "axolotl", "armor"]
+        "banner", "pumpkin", "egg", "apple", "map", "creeper", "bee", "axolotl", "armor", "beacons"]
     },
     { 
       name: "boo", 
