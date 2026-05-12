@@ -51,7 +51,8 @@ export default function App() {
       name: "melon", 
       members: "Thunderstorm24, Fet0921, pantanaisu, _______________s",
       completed: ["hq", "bee", "pumpkin", "horse", "farm", "banner", "redstone", 
-        "ender", "heart", "map", "axolotl", "apple", "egg", "beacons", "rod", "mace", "creeper", "tame", "breath"]
+        "ender", "heart", "map", "axolotl", "apple", "egg", "beacons", "rod", "mace", 
+        "creeper", "tame", "breath", "armor"]
     },
     { 
       name: "Transgender", 
