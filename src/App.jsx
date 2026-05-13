@@ -88,7 +88,7 @@ export default function App() {
     },
     { 
       name: "boo", 
-      members: ["xniqt", "ChaoticRylee"], 
+      members: ["ChaoticRylee"], 
       completedVol1: ["hq", "farm", "redstone", "egg", "heart", "banner"],
       completedVol2: []
     },
@@ -164,7 +164,7 @@ export default function App() {
         {/* MC Status */}
         <motion.div whileHover={{ scale: 1.01 }} className="md:col-span-8 glass-card rounded-[2.5rem] p-10 flex items-center justify-between overflow-hidden relative">
           <div>
-            <h2 className="text-2xl font-bold tracking-tight mb-1 text-thxbai-accent uppercase italic">Femboy SMP</h2>
+            <h2 className="text-2xl font-bold tracking-tight mb-1 text-thxbai-accent uppercase italic">The Project</h2>
             <p className="text-thxbai-muted text-lg font-medium italic">Vol. {activeVolume} Active.</p>
           </div>
           <div className="flex flex-col items-end">
@@ -181,7 +181,30 @@ export default function App() {
           <button onClick={() => setActiveVolume(2)} className={`px-6 py-3 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all cursor-pointer ${activeVolume === 2 ? "bg-thxbai-accent text-white shadow-lg shadow-thxbai-accent/20" : "bg-white/5 text-thxbai-muted hover:bg-white/10"}`}>Volume 2</button>
         </div>
 
-        {/* EXPANDED LEADERBOARD CARD */}
+        {/* ONGOING EVENT / BIO - Expanded to 12 columns */}
+        <motion.div className="md:col-span-12 glass-card rounded-[3rem] p-12 min-h-[420px] flex flex-col justify-between border-l-4 border-l-thxbai-accent">
+          <div>
+            <div className="flex items-center gap-3 mb-6">
+              <span className="px-3 py-1 rounded-full bg-thxbai-accent/20 text-thxbai-accent text-[10px] font-black uppercase tracking-widest">Ongoing Event</span>
+              <span className="text-thxbai-muted text-[10px] font-bold uppercase tracking-widest">Nitro Reward</span>
+            </div>
+            <h3 className="text-5xl font-black leading-[1.1] mb-6 tracking-tighter italic text-white uppercase italic">Volume {activeVolume} <br /> Objectives.</h3>
+            <p className="text-thxbai-muted text-md max-w-2xl font-medium leading-relaxed mb-6">
+              {activeVolume === 1 
+                ? "The original race to dominance. Complete all 20 standard tasks." 
+                : "The advanced phase. Tiered difficulty levels ranging from collection to extreme grinds."
+              }
+            </p>
+          </div>
+          <div className="border-t border-white/5 pt-6">
+            <span className="block text-[10px] font-black text-thxbai-accent uppercase mb-2 italic underline">Admin Tip</span>
+            <p className="text-[12px] text-thxbai-muted italic leading-relaxed max-w-3xl">
+              As we no longer have the faction mod in place(rip in peace), please ensure you post a screenshot in this channel when a task is completed so it can be manually logged! Do also make sure that you do not group up with more than 4 people(1 leader + 3 members).
+            </p>
+          </div>
+        </motion.div>
+
+        {/* LEADERBOARD CARD - Moved below the Ongoing Event */}
         <motion.div className="md:col-span-12 glass-card rounded-[3rem] p-10 border-t-4 border-t-yellow-500/20">
           <div className="flex justify-between items-center mb-10">
             <div>
@@ -217,34 +240,6 @@ export default function App() {
           </div>
         </motion.div>
 
-        {/* Event Bio */}
-        <motion.div className="md:col-span-7 glass-card rounded-[3rem] p-12 min-h-[420px] flex flex-col justify-between border-l-4 border-l-thxbai-accent">
-          <div>
-            <div className="flex items-center gap-3 mb-6">
-              <span className="px-3 py-1 rounded-full bg-thxbai-accent/20 text-thxbai-accent text-[10px] font-black uppercase tracking-widest">Ongoing Event</span>
-              <span className="text-thxbai-muted text-[10px] font-bold uppercase tracking-widest">Nitro Reward</span>
-            </div>
-            <h3 className="text-5xl font-black leading-[1.1] mb-6 tracking-tighter italic text-white uppercase italic">Volume {activeVolume} <br /> Objectives.</h3>
-            <p className="text-thxbai-muted text-md max-w-md font-medium leading-relaxed mb-6">
-              {activeVolume === 1 
-                ? "The original race to dominance. Complete all 20 standard tasks." 
-                : "The advanced phase. Tiered difficulty levels ranging from collection to extreme grinds."
-              }
-            </p>
-          </div>
-          <div className="border-t border-white/5 pt-6">
-            <span className="block text-[10px] font-black text-thxbai-accent uppercase mb-2 italic underline">Admin Tip</span>
-            <p className="text-[11px] text-thxbai-muted italic">Display items in Item Frames at HQ. Verified completions will be marked with signs to prevent item sharing.</p>
-          </div>
-        </motion.div>
-
-        {/* Small Status Box to balance grid */}
-        <div className="md:col-span-5 glass-card rounded-[3rem] p-10 flex flex-col justify-center">
-            <span className="text-xs font-bold text-thxbai-accent uppercase tracking-widest mb-2">Current Goal</span>
-            <h4 className="text-2xl font-black italic uppercase">Dominate Vol. {activeVolume}</h4>
-            <p className="text-thxbai-muted text-sm mt-4 leading-relaxed font-medium">Verify your items with staff to climb the rankings.</p>
-        </div>
-
         {/* PROGRESS TRACKER */}
         <motion.div className="md:col-span-12 glass-card rounded-[3rem] p-10 border-l-4 border-l-emerald-500/30">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
@@ -259,7 +254,7 @@ export default function App() {
           {activeFactionDetails && (
             <div>
               <div className="flex justify-between items-center mb-6">
-                <span className="text-xs font-black text-thxbai-muted uppercase tracking-widest">Completed {activeCompletions?.length || 0} of {currentTasks.length}</span>
+                <span className="text-xs font-black text-thxbai-muted uppercase tracking-widest">Completed {activeCompletions?.length || 0} of {currentTasks.length} Tasks</span>
                 <span className="text-sm font-black italic text-emerald-400">{Math.round(((activeCompletions?.length || 0) / currentTasks.length) * 100)}% Complete</span>
               </div>
               
