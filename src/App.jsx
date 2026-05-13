@@ -10,8 +10,11 @@ export default function App() {
   const MC_SERVER_IP = "199.115.72.77";
   const MC_SERVER_PORT = "25565";
 
-  // --- OBJECTIVES / TASK LIST ---
-  const tasks = [
+  // State to toggle between Volume 1 and Volume 2
+  const [activeVolume, setActiveVolume] = useState(2);
+
+  // --- VOLUME 1 TASKS ---
+  const tasksVol1 = [
     { id: "hq", name: "Set up a faction HQ", pts: 5 },
     { id: "tame", name: "Tame 3 different animals", pts: 10 },
     { id: "banner", name: "Create a team banner", pts: 10 },
@@ -34,46 +37,85 @@ export default function App() {
     { id: "axolotl", name: "Obtain a Blue Axolotl", pts: 250 },
   ];
 
-  // --- MANUAL FACTIONS & COMPLETED TASKS DATA ---
+  // --- VOLUME 2 TASKS (Tiered) ---
+  const tasksVol2 = [
+    // Tier 1: Collection & Aesthetics (15 pts)
+    { id: "terracotta", name: "16 Colors Glazed Terracotta Grid", pts: 15, tier: "Tier 1" },
+    { id: "froglight", name: "Display all Froglight colors", pts: 15, tier: "Tier 1" },
+    { id: "egg_cake", name: "Cake on top of Dragon Egg", pts: 15, tier: "Tier 1" },
+    { id: "templates", name: "10 Smithing Templates", pts: 15, tier: "Tier 1" },
+    { id: "pink_armor", name: "Dyed Pink Leather Armor Set", pts: 15, tier: "Tier 1" },
+    { id: "hive_flowers", name: "8 Flowers around a Hive", pts: 15, tier: "Tier 1" },
+    { id: "goat_horn", name: "Obtain any Goat Horn", pts: 15, tier: "Tier 1" },
+    // Tier 2: Exploration & Rare Finds (35 pts)
+    { id: "silence", name: "Obtain 'Silence' Armor Trim", pts: 35, tier: "Tier 2" },
+    { id: "vex_trim", name: "Obtain 'Ward' or 'Vex' Trim", pts: 35, tier: "Tier 2" },
+    { id: "ghast_cage", name: "Ghast in Overworld Cage", pts: 35, tier: "Tier 2" },
+    { id: "conduit", name: "Fully activated Conduit", pts: 35, tier: "Tier 2" },
+    { id: "disc_5", name: "Obtain Music Disc 5", pts: 35, tier: "Tier 2" },
+    { id: "sherds", name: "All 20 unique Pottery Sherds", pts: 35, tier: "Tier 2" },
+    { id: "spore", name: "Place Spore Blossom in HQ", pts: 35, tier: "Tier 2" },
+    { id: "sponge", name: "Collect 64 Sponge blocks", pts: 35, tier: "Tier 2" },
+    // Tier 3: Technical & Hardcore (75 pts)
+    { id: "smelter", name: "8-Furnace Super Smelter", pts: 75, tier: "Tier 3" },
+    { id: "god_armor", name: "Full Set of 'God Armor'", pts: 75, tier: "Tier 3" },
+    { id: "map_5x5", name: "5x5 Map Wall of HQ area", pts: 75, tier: "Tier 3" },
+    { id: "mooshroom", name: "Breed a Brown Mooshroom", pts: 75, tier: "Tier 3" },
+    { id: "monument", name: "Drain an Ocean Monument", pts: 75, tier: "Tier 3" },
+    { id: "end_heads", name: "5 Dragon Heads from Ships", pts: 75, tier: "Tier 3" },
+    { id: "cart_hub", name: "500-block 4-way Minecart Hub", pts: 75, tier: "Tier 3" },
+    { id: "totems", name: "64 Totems of Undying", pts: 75, tier: "Tier 3" },
+    // Tier 4: The "Tie-Breakers" (150 pts)
+    { id: "advancement", name: "'How Did We Get Here?'", pts: 150, tier: "Tier 4" },
+    { id: "emerald_pyramid", name: "3-level Emerald Block Pyramid", pts: 150, tier: "Tier 4" },
+    { id: "zoo", name: "Jeb, Toast, & Dinnerbone Zoo", pts: 150, tier: "Tier 4" },
+    { id: "chunk_loader", name: "End Portal Perma-loader", pts: 150, tier: "Tier 4" },
+    { id: "amethyst_roof", name: "Full Amethyst Cluster Roof", pts: 150, tier: "Tier 4" },
+  ];
+
+  // --- FACTION DATA ---
   const factionsData = [
     { 
       name: "meow", 
       members: "ultragaminggamer, KotaGG, raviolomood, pendulesteak", 
-      completed: ["hq", "horse", "farm", "ender", "heart", "breath", "rod", "redstone", "tame", 
-        "banner", "pumpkin", "egg", "apple", "map", "creeper", "bee", "axolotl", "armor", "beacons", "mace"]
+      completedVol1: ["hq", "horse", "farm", "ender", "heart", "breath", "rod", "redstone", "tame", "banner", "pumpkin", "egg", "apple", "map", "creeper", "bee", "axolotl", "armor", "beacons", "mace"],
+      completedVol2: [] 
     },
     { 
       name: "boo", 
       members: "ChaoticRylee", 
-      completed: ["hq", "farm", "redstone", "egg", "heart", "banner"]
+      completedVol1: ["hq", "farm", "redstone", "egg", "heart", "banner"],
+      completedVol2: []
     },
     { 
       name: "melon", 
       members: "Thunderstorm24, Fet0921, pantanaisu, _______________s",
-      completed: ["hq", "bee", "pumpkin", "horse", "farm", "banner", "redstone", 
-        "ender", "heart", "map", "axolotl", "apple", "egg", "beacons", "rod", "mace", 
-        "creeper", "tame", "breath", "armor"]
+      completedVol1: ["hq", "bee", "pumpkin", "horse", "farm", "banner", "redstone", "ender", "heart", "map", "axolotl", "apple", "egg", "beacons", "rod", "mace", "creeper", "tame", "breath", "armor"],
+      completedVol2: []
     },
     { 
       name: "Transgender", 
       members: "WuvX", 
-      completed: ["hq"] 
+      completedVol1: ["hq"],
+      completedVol2: [] 
     },
   ];
 
   // Helper function to calculate points dynamically
-  const calculateScore = (completedIds) => {
+  const calculateScore = (completedIds, taskList) => {
     return completedIds.reduce((total, taskId) => {
-      const task = tasks.find((t) => t.id === taskId);
+      const task = taskList.find((t) => t.id === taskId);
       return total + (task ? task.pts : 0);
     }, 0);
   };
 
-  // Automatically generate the sorted leaderboard
+  const currentTasks = activeVolume === 1 ? tasksVol1 : tasksVol2;
+
+  // Generate sorted leaderboard based on active volume
   const leaderboard = factionsData
     .map((faction) => ({
       ...faction,
-      score: calculateScore(faction.completed),
+      score: calculateScore(activeVolume === 1 ? faction.completedVol1 : faction.completedVol2, currentTasks),
     }))
     .sort((a, b) => b.score - a.score);
 
@@ -96,6 +138,7 @@ export default function App() {
   }, []);
 
   const activeFactionDetails = leaderboard.find((f) => f.name === selectedFaction);
+  const activeCompletions = activeVolume === 1 ? activeFactionDetails?.completedVol1 : activeFactionDetails?.completedVol2;
 
   return (
     <div className="min-h-screen bg-thxbai-dark text-white font-sans selection:bg-thxbai-accent/40 p-4 md:p-12 selection:text-white relative">
@@ -111,15 +154,15 @@ export default function App() {
         
         {/* Brand Header */}
         <motion.div whileHover={{ scale: 1.01 }} transition={springConfig} className="md:col-span-4 glass-card rounded-[2.5rem] p-10 flex flex-col justify-center min-h-[200px]">
-          <h1 className="text-6xl font-black tracking-tighter italic mb-3">kthxbai</h1>
+          <h1 className="text-6xl font-black tracking-tighter italic mb-3 text-white uppercase italic">kthxbai</h1>
           <p className="text-thxbai-muted text-xs font-bold tracking-[0.3em] uppercase opacity-60">Est. 2026 // i hate it here</p>
         </motion.div>
 
         {/* MC Status */}
-        <motion.div whileHover={{ scale: 1.01 }} transition={springConfig} className="md:col-span-8 glass-card rounded-[2.5rem] p-10 flex items-center justify-between overflow-hidden">
+        <motion.div whileHover={{ scale: 1.01 }} transition={springConfig} className="md:col-span-8 glass-card rounded-[2.5rem] p-10 flex items-center justify-between overflow-hidden relative">
           <div>
-            <h2 className="text-2xl font-bold tracking-tight mb-1 text-thxbai-accent uppercase">Femboy SMP</h2>
-            <p className="text-thxbai-muted text-lg font-medium italic">Factions & Tasks.</p>
+            <h2 className="text-2xl font-bold tracking-tight mb-1 text-thxbai-accent uppercase italic">The Project</h2>
+            <p className="text-thxbai-muted text-lg font-medium italic">Vol. {activeVolume} Active.</p>
           </div>
           <div className="flex flex-col items-end">
             <span className="text-5xl font-black tracking-tighter italic">{mcPlayers.online}<span className="text-sm text-thxbai-muted font-normal not-italic ml-1">/{mcPlayers.max || 50}</span></span>
@@ -129,28 +172,53 @@ export default function App() {
           </div>
         </motion.div>
 
-        {/* Event Bio (Now next to Leaderboard) */}
+        {/* VOLUME SELECTOR */}
+        <div className="md:col-span-12 flex gap-3 mb-2">
+          <button 
+            onClick={() => setActiveVolume(1)}
+            className={`px-6 py-3 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all cursor-pointer ${
+              activeVolume === 1 ? "bg-white text-black" : "bg-white/5 text-thxbai-muted hover:bg-white/10"
+            }`}
+          >
+            Volume 1
+          </button>
+          <button 
+            onClick={() => setActiveVolume(2)}
+            className={`px-6 py-3 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all cursor-pointer ${
+              activeVolume === 2 ? "bg-thxbai-accent text-white shadow-lg shadow-thxbai-accent/20" : "bg-white/5 text-thxbai-muted hover:bg-white/10"
+            }`}
+          >
+            Volume 2
+          </button>
+        </div>
+
+        {/* Event Bio */}
         <motion.div className="md:col-span-7 glass-card rounded-[3rem] p-12 min-h-[420px] flex flex-col justify-between border-l-4 border-l-thxbai-accent">
           <div>
             <div className="flex items-center gap-3 mb-6">
               <span className="px-3 py-1 rounded-full bg-thxbai-accent/20 text-thxbai-accent text-[10px] font-black uppercase tracking-widest">Ongoing Event</span>
-              <span className="text-thxbai-muted text-[10px] font-bold uppercase tracking-widest">Ends July 19</span>
+              <span className="text-thxbai-muted text-[10px] font-bold uppercase tracking-widest">Nitro Reward</span>
             </div>
-            <h3 className="text-5xl font-black leading-[1.1] mb-6 tracking-tighter italic text-white uppercase">Faction <br /> Dominance.</h3>
-            <p className="text-thxbai-muted text-md max-w-md font-medium leading-relaxed mb-6">Gather your crew (max 4), build your base, and prepare for battle. Complete challenges to win Discord Nitro.</p>
+            <h3 className="text-5xl font-black leading-[1.1] mb-6 tracking-tighter italic text-white uppercase italic">Volume {activeVolume} <br /> Objectives.</h3>
+            <p className="text-thxbai-muted text-md max-w-md font-medium leading-relaxed mb-6">
+              {activeVolume === 1 
+                ? "The original race to dominance. Complete all 20 standard tasks." 
+                : "The advanced phase. Tiered difficulty levels ranging from collection to extreme grinds."
+              }
+            </p>
           </div>
-          <div className="grid grid-cols-2 gap-4 border-t border-white/5 pt-6">
-            <div><span className="block text-[10px] font-black text-thxbai-accent uppercase mb-1">Power System</span><p className="text-xs text-thxbai-muted">+20/member, -10/death</p></div>
-            <div><span className="block text-[10px] font-black text-thxbai-accent uppercase mb-1">Reward</span><p className="text-xs text-thxbai-muted italic font-bold text-white uppercase tracking-widest">Discord Nitro</p></div>
+          <div className="border-t border-white/5 pt-6">
+            <span className="block text-[10px] font-black text-thxbai-accent uppercase mb-2 italic underline">Admin Tip</span>
+            <p className="text-[11px] text-thxbai-muted italic">Display items in Item Frames at HQ. Verified completions will be marked with signs to prevent item sharing.</p>
           </div>
         </motion.div>
 
-        {/* LEADERBOARD CARD (Now elegant and condensed to the right side) */}
+        {/* LEADERBOARD CARD */}
         <motion.div className="md:col-span-5 glass-card rounded-[3rem] p-8 border-t-4 border-t-yellow-500/20 flex flex-col justify-between min-h-[420px]">
           <div className="flex justify-between items-center mb-4">
             <div>
               <h3 className="text-2xl font-black italic uppercase tracking-tight">Leaderboard</h3>
-              <p className="text-thxbai-muted text-[10px] font-bold mt-0.5 uppercase tracking-widest opacity-60">Top 5 Standings</p>
+              <p className="text-thxbai-muted text-[10px] font-bold mt-0.5 uppercase tracking-widest opacity-60">Vol. {activeVolume} Rankings</p>
             </div>
             <div className="w-8 h-8 rounded-full bg-yellow-500/10 border border-yellow-500/20 flex items-center justify-center text-yellow-500 text-sm font-bold italic">★</div>
           </div>
@@ -178,11 +246,10 @@ export default function App() {
         <motion.div className="md:col-span-12 glass-card rounded-[3rem] p-10 border-l-4 border-l-emerald-500/30">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
             <div>
-              <h3 className="text-3xl font-black italic uppercase tracking-tight">Faction Progress</h3>
-              <p className="text-thxbai-muted text-xs font-bold mt-1 uppercase tracking-widest opacity-60">Track completed objectives</p>
+              <h3 className="text-3xl font-black italic uppercase tracking-tight">Vol. {activeVolume} Progress</h3>
+              <p className="text-thxbai-muted text-xs font-bold mt-1 uppercase tracking-widest opacity-60">Track faction completions</p>
             </div>
             
-            {/* Interactive Faction Selector Tabs */}
             <div className="flex flex-wrap gap-2">
               {leaderboard.map((faction) => (
                 <button
@@ -200,22 +267,20 @@ export default function App() {
             </div>
           </div>
 
-          {/* Progress Display */}
           {activeFactionDetails && (
             <div>
               <div className="flex justify-between items-center mb-4">
                 <span className="text-xs font-black text-thxbai-muted uppercase tracking-widest">
-                  Completed {activeFactionDetails.completed.length} of {tasks.length} Tasks
+                  Completed {activeCompletions?.length || 0} of {currentTasks.length} Tasks
                 </span>
                 <span className="text-sm font-black italic text-emerald-400">
-                  {Math.round((activeFactionDetails.completed.length / tasks.length) * 100)}% Complete
+                  {Math.round(((activeCompletions?.length || 0) / currentTasks.length) * 100)}% Complete
                 </span>
               </div>
               
-              {/* Grid showing checked off tasks for the selected faction */}
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
-                {tasks.map((task) => {
-                  const isCompleted = activeFactionDetails.completed.includes(task.id);
+                {currentTasks.map((task) => {
+                  const isCompleted = activeCompletions?.includes(task.id);
                   return (
                     <div
                       key={task.id}
@@ -225,10 +290,10 @@ export default function App() {
                           : "bg-white/[0.01] border-white/5 text-thxbai-muted/40"
                       }`}
                     >
-                      <div className="flex items-center gap-3">
-                        <span className={`text-xs font-bold ${isCompleted ? "text-emerald-400" : "text-white/10"}`}>
-                          {isCompleted ? "✓" : "○"}
-                        </span>
+                      <div className="flex flex-col">
+                        {task.tier && (
+                          <span className="text-[8px] font-black uppercase tracking-widest opacity-50 mb-0.5">{task.tier}</span>
+                        )}
                         <span className="text-xs font-medium tracking-tight">{task.name}</span>
                       </div>
                       <span className={`text-[9px] font-black px-2 py-1 rounded ${
@@ -248,9 +313,9 @@ export default function App() {
         <motion.a href={DISCORD_INVITE_LINK} target="_blank" rel="noopener noreferrer" className="md:col-span-12 glass-card rounded-[2.5rem] p-10 flex items-center justify-between group transition-all duration-300">
           <div>
              <span className="text-xs font-bold text-thxbai-accent uppercase tracking-[0.2em] block mb-1">Join Community</span>
-             <span className="text-3xl font-black italic block">Discord Server</span>
+             <span className="text-3xl font-black italic block uppercase">Discord Server</span>
              <span className="text-xs text-thxbai-muted font-bold uppercase tracking-widest mt-2 flex items-center gap-1.5 opacity-60">
-               <span className="w-1.5 h-1.5 bg-thxbai-accent rounded-full" /> {totalMembers} Members
+               <span className="w-1.5 h-1.5 bg-thxbai-accent rounded-full" /> {totalMembers} Members in the void
              </span>
           </div>
           <div className="w-16 h-16 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all">→</div>
