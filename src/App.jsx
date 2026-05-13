@@ -67,7 +67,7 @@ export default function App() {
     { id: "sponge", name: "Stack of Sponges", pts: 35, tier: "Tier 2", desc: "Collect a full stack (64) of Sponge blocks." },
     // Tier 3
     { id: "smelter", name: "Super Smelter", pts: 75, tier: "Tier 3", desc: "Build a functional smelter with at least 8 Furnaces linked to hoppers." },
-    { id: "god_armor", name: "Full 'God Armor'", pts: 75, tier: "Tier 3", desc: "Full Netherite set with Level 4 Enchants on everything." },
+    { id: "god_armor", name: "Full 'God Armor'", pts: 75, tier: "Tier 3", desc: "Full Netherite set with max Level Enchants on every piece." },
     { id: "map_5x5", name: "5x5 Map Wall", pts: 75, tier: "Tier 3", desc: "Create a 5x5 Map Wall of the area surrounding your HQ." },
     { id: "mooshroom", name: "Brown Mooshroom", pts: 75, tier: "Tier 3", desc: "Breed a Brown Mooshroom (requires lightning/Channeling trident)." },
     { id: "monument", name: "Ocean Monument Clear", pts: 75, tier: "Tier 3", desc: "Clear out an entire Ocean Monument of all water." },
