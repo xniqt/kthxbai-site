@@ -46,36 +46,40 @@ export default function App() {
     { id: "axolotl", name: "Obtain a Blue Axolotl", pts: 250 },
   ];
 
-  // --- VOLUME 2 TASKS ---
+  // --- VOLUME 2 TASKS (With Hover Descriptions) ---
   const tasksVol2 = [
-    { id: "terracotta", name: "16 Colors Glazed Terracotta Grid", pts: 15, tier: "Tier 1" },
-    { id: "froglight", name: "Display all Froglight colors", pts: 15, tier: "Tier 1" },
-    { id: "egg_cake", name: "Cake on top of Dragon Egg", pts: 15, tier: "Tier 1" },
-    { id: "templates", name: "10 Smithing Templates", pts: 15, tier: "Tier 1" },
-    { id: "pink_armor", name: "Dyed Pink Leather Armor Set", pts: 15, tier: "Tier 1" },
-    { id: "hive_flowers", name: "8 Flowers around a Hive", pts: 15, tier: "Tier 1" },
-    { id: "goat_horn", name: "Obtain any Goat Horn", pts: 15, tier: "Tier 1" },
-    { id: "silence", name: "Obtain 'Silence' Armor Trim", pts: 35, tier: "Tier 2" },
-    { id: "vex_trim", name: "Obtain 'Ward' or 'Vex' Trim", pts: 35, tier: "Tier 2" },
-    { id: "ghast_cage", name: "Ghast in Overworld Cage", pts: 35, tier: "Tier 2" },
-    { id: "conduit", name: "Fully activated Conduit", pts: 35, tier: "Tier 2" },
-    { id: "disc_5", name: "Obtain Music Disc 5", pts: 35, tier: "Tier 2" },
-    { id: "sherds", name: "All 20 unique Pottery Sherds", pts: 35, tier: "Tier 2" },
-    { id: "spore", name: "Place Spore Blossom in HQ", pts: 35, tier: "Tier 2" },
-    { id: "sponge", name: "Collect 64 Sponge blocks", pts: 35, tier: "Tier 2" },
-    { id: "smelter", name: "8-Furnace Super Smelter", pts: 75, tier: "Tier 3" },
-    { id: "god_armor", name: "Full Set of 'God Armor'", pts: 75, tier: "Tier 3" },
-    { id: "map_5x5", name: "5x5 Map Wall of HQ area", pts: 75, tier: "Tier 3" },
-    { id: "mooshroom", name: "Breed a Brown Mooshroom", pts: 75, tier: "Tier 3" },
-    { id: "monument", name: "Drain an Ocean Monument", pts: 75, tier: "Tier 3" },
-    { id: "end_heads", name: "5 Dragon Heads from Ships", pts: 75, tier: "Tier 3" },
-    { id: "cart_hub", name: "500-block 4-way Minecart Hub", pts: 75, tier: "Tier 3" },
-    { id: "totems", name: "64 Totems of Undying", pts: 75, tier: "Tier 3" },
-    { id: "advancement", name: "'How Did We Get Here?'", pts: 150, tier: "Tier 4" },
-    { id: "emerald_pyramid", name: "3-level Emerald Block Pyramid", pts: 150, tier: "Tier 4" },
-    { id: "zoo", name: "Jeb, Toast, & Dinnerbone Zoo", pts: 150, tier: "Tier 4" },
-    { id: "chunk_loader", name: "End Portal Perma-loader", pts: 150, tier: "Tier 4" },
-    { id: "amethyst_roof", name: "Full Amethyst Cluster Roof", pts: 150, tier: "Tier 4" },
+    // Tier 1
+    { id: "terracotta", name: "Glazed Terracotta Grid", pts: 15, tier: "Tier 1", desc: "Obtain all 16 colors of Glazed Terracotta and place them in a 4x4 grid." },
+    { id: "froglight", name: "Froglight Display", pts: 15, tier: "Tier 1", desc: "Collect and display 1 of every Froglight color (Pearlescent, Verdant, and Ochre)." },
+    { id: "egg_cake", name: "Dragon Egg Cake", pts: 15, tier: "Tier 1", desc: "Obtain and place a Cake on top of a Dragon Egg." },
+    { id: "templates", name: "Smithing Templates", pts: 15, tier: "Tier 1", desc: "Place 10 different types of Smithing Templates in a chest or on item frames." },
+    { id: "pink_armor", name: "Pink Leather Set", pts: 15, tier: "Tier 1", desc: "Dye a full set of Leather Armor pink and place it on an armor stand." },
+    { id: "hive_flowers", name: "Hive Flower Garden", pts: 15, tier: "Tier 1", desc: "Collect 8 different types of Flowers and plant them in a 1-block radius around a Hive." },
+    { id: "goat_horn", name: "Goat Horn", pts: 15, tier: "Tier 1", desc: "Obtain any variant of a Goat Horn." },
+    // Tier 2
+    { id: "silence", name: "'Silence' Armor Trim", pts: 35, tier: "Tier 2", desc: "Obtain the rarest trim found in Ancient Cities." },
+    { id: "vex_trim", name: "Ward or Vex Trim", pts: 35, tier: "Tier 2", desc: "Obtain either the Ward or Vex Armor Trim variants." },
+    { id: "ghast_cage", name: "Ghast in a Cage", pts: 35, tier: "Tier 2", desc: "Capture a Ghast in a glass cage in the Overworld." },
+    { id: "conduit", name: "Activated Conduit", pts: 35, tier: "Tier 2", desc: "Place a Conduit in a water feature and have it fully activated (surrounded by Prismarine)." },
+    { id: "disc_5", name: "Music Disc 5", pts: 35, tier: "Tier 2", desc: "Obtain Music Disc 5, crafted from fragments found in Ancient Cities." },
+    { id: "sherds", name: "All Pottery Sherds", pts: 35, tier: "Tier 2", desc: "Obtain 1 of every unique Pottery Sherd (20 total)." },
+    { id: "spore", name: "HQ Spore Blossom", pts: 35, tier: "Tier 2", desc: "Place a Spore Blossom in your Faction HQ." },
+    { id: "sponge", name: "Stack of Sponges", pts: 35, tier: "Tier 2", desc: "Collect a full stack (64) of Sponge blocks." },
+    // Tier 3
+    { id: "smelter", name: "Super Smelter", pts: 75, tier: "Tier 3", desc: "Build a functional smelter with at least 8 Furnaces linked to hoppers." },
+    { id: "god_armor", name: "Full 'God Armor'", pts: 75, tier: "Tier 3", desc: "Full Netherite set with Level 4 Enchants on everything." },
+    { id: "map_5x5", name: "5x5 Map Wall", pts: 75, tier: "Tier 3", desc: "Create a 5x5 Map Wall of the area surrounding your HQ." },
+    { id: "mooshroom", name: "Brown Mooshroom", pts: 75, tier: "Tier 3", desc: "Breed a Brown Mooshroom (requires lightning/Channeling trident)." },
+    { id: "monument", name: "Ocean Monument Clear", pts: 75, tier: "Tier 3", desc: "Clear out an entire Ocean Monument of all water." },
+    { id: "end_heads", name: "5 Dragon Heads", pts: 75, tier: "Tier 3", desc: "Collect 5 Dragon Heads from End Ships." },
+    { id: "cart_hub", name: "4-way Minecart Hub", pts: 75, tier: "Tier 3", desc: "Construct a hub that travels 500 blocks in each direction." },
+    { id: "totems", name: "Stack of Totems", pts: 75, tier: "Tier 3", desc: "Collect a stack (64) of Totems of Undying in a single chest." },
+    // Tier 4
+    { id: "advancement", name: "How Did We Get Here?", pts: 150, tier: "Tier 4", desc: "Obtain the most difficult advancement in the game." },
+    { id: "emerald_pyramid", name: "Emerald Pyramid", pts: 150, tier: "Tier 4", desc: "Construct a pyramid made entirely of Emerald Blocks (min 3 levels)." },
+    { id: "zoo", name: "The Name-Tag Zoo", pts: 150, tier: "Tier 4", desc: "Display a Jeb_ sheep, Toast rabbit, and Dinnerbone mob." },
+    { id: "chunk_loader", name: "End Perma-loader", pts: 150, tier: "Tier 4", desc: "Build a perma-loader for the End Portal to keep it chunk-loaded." },
+    { id: "amethyst_roof", name: "Amethyst HQ Roof", pts: 150, tier: "Tier 4", desc: "Cover your entire HQ roof in Amethyst Clusters." },
   ];
 
   // --- FACTION DATA ---
@@ -164,7 +168,7 @@ export default function App() {
         {/* MC Status */}
         <motion.div whileHover={{ scale: 1.01 }} className="md:col-span-8 glass-card rounded-[2.5rem] p-10 flex items-center justify-between overflow-hidden relative">
           <div>
-            <h2 className="text-2xl font-bold tracking-tight mb-1 text-thxbai-accent uppercase italic">The Project</h2>
+            <h2 className="text-2xl font-bold tracking-tight mb-1 text-thxbai-accent uppercase italic">Femboy SMP</h2>
             <p className="text-thxbai-muted text-lg font-medium italic">Vol. {activeVolume} Active.</p>
           </div>
           <div className="flex flex-col items-end">
@@ -181,7 +185,7 @@ export default function App() {
           <button onClick={() => setActiveVolume(2)} className={`px-6 py-3 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all cursor-pointer ${activeVolume === 2 ? "bg-thxbai-accent text-white shadow-lg shadow-thxbai-accent/20" : "bg-white/5 text-thxbai-muted hover:bg-white/10"}`}>Volume 2</button>
         </div>
 
-        {/* ONGOING EVENT / BIO - Expanded to 12 columns */}
+        {/* ONGOING EVENT / BIO */}
         <motion.div className="md:col-span-12 glass-card rounded-[3rem] p-12 min-h-[420px] flex flex-col justify-between border-l-4 border-l-thxbai-accent">
           <div>
             <div className="flex items-center gap-3 mb-6">
@@ -204,7 +208,7 @@ export default function App() {
           </div>
         </motion.div>
 
-        {/* LEADERBOARD CARD - Moved below the Ongoing Event */}
+        {/* LEADERBOARD CARD */}
         <motion.div className="md:col-span-12 glass-card rounded-[3rem] p-10 border-t-4 border-t-yellow-500/20">
           <div className="flex justify-between items-center mb-10">
             <div>
@@ -262,7 +266,18 @@ export default function App() {
                 {currentTasks.map((task) => {
                   const isCompleted = activeCompletions?.includes(task.id);
                   return (
-                    <div key={task.id} className={`flex justify-between items-center p-4 rounded-2xl border transition-all ${isCompleted ? "bg-emerald-500/5 border-emerald-500/20 text-emerald-400" : "bg-white/[0.01] border-white/5 text-thxbai-muted/40"}`}>
+                    <div 
+                      key={task.id} 
+                      className={`relative group flex justify-between items-center p-4 rounded-2xl border transition-all ${isCompleted ? "bg-emerald-500/5 border-emerald-500/20 text-emerald-400" : "bg-white/[0.01] border-white/5 text-thxbai-muted/40"}`}
+                    >
+                      {/* Tooltip Description on Hover */}
+                      {task.desc && (
+                        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-48 p-3 bg-black/90 backdrop-blur-md border border-white/10 rounded-xl text-[10px] text-white leading-relaxed opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 pointer-events-none shadow-2xl">
+                          {task.desc}
+                          <div className="absolute top-full left-1/2 -translate-x-1/2 w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[6px] border-t-black/90"></div>
+                        </div>
+                      )}
+
                       <div className="flex flex-col">
                         {task.tier && <span className="text-[8px] font-black uppercase tracking-widest opacity-50 mb-0.5">{task.tier}</span>}
                         <span className="text-xs font-medium tracking-tight">{task.name}</span>
@@ -282,7 +297,7 @@ export default function App() {
              <span className="text-xs font-bold text-thxbai-accent uppercase tracking-[0.2em] block mb-1">Join Community</span>
              <span className="text-3xl font-black italic block uppercase">Discord Server</span>
              <span className="text-xs text-thxbai-muted font-bold uppercase tracking-widest mt-2 flex items-center gap-1.5 opacity-60">
-               <span className="w-1.5 h-1.5 bg-thxbai-accent rounded-full" /> {totalMembers} Members in the void
+               <span className="w-1.5 h-1.5 bg-thxbai-accent rounded-full" /> {totalMembers} Members
              </span>
           </div>
           <div className="w-16 h-16 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all">→</div>
