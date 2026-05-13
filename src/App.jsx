@@ -161,7 +161,7 @@ export default function App() {
         {/* MC Status */}
         <motion.div whileHover={{ scale: 1.01 }} transition={springConfig} className="md:col-span-8 glass-card rounded-[2.5rem] p-10 flex items-center justify-between overflow-hidden relative">
           <div>
-            <h2 className="text-2xl font-bold tracking-tight mb-1 text-thxbai-accent uppercase italic">The Project</h2>
+            <h2 className="text-2xl font-bold tracking-tight mb-1 text-thxbai-accent uppercase italic">Femboy SMP</h2>
             <p className="text-thxbai-muted text-lg font-medium italic">Vol. {activeVolume} Active.</p>
           </div>
           <div className="flex flex-col items-end">
@@ -209,7 +209,7 @@ export default function App() {
           </div>
           <div className="border-t border-white/5 pt-6">
             <span className="block text-[10px] font-black text-thxbai-accent uppercase mb-2 italic underline">Admin Tip</span>
-            <p className="text-[11px] text-thxbai-muted italic">Display items in Item Frames at HQ. Verified completions will be marked with signs to prevent item sharing.</p>
+            <p className="text-[11px] text-thxbai-muted italic">Since we are no longer using the faction mod, please ensure you post a screenshot in the Discord Minecraft channel when a task is completed so it can be manually logged!</p>
           </div>
         </motion.div>
 
