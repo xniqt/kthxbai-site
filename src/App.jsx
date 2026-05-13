@@ -88,7 +88,7 @@ export default function App() {
     },
     { 
       name: "boo", 
-      members: ["xniqt", "ChaoticRylee"], 
+      members: ["xniqt", "ChaosTwinRylee"], 
       completedVol1: ["hq", "farm", "redstone", "egg", "heart", "banner"],
       completedVol2: []
     },
