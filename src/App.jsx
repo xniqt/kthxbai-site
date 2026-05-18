@@ -203,7 +203,7 @@ export default function App() {
           <div className="border-t border-white/5 pt-6">
             <span className="block text-[10px] font-black text-thxbai-accent uppercase mb-2 italic underline">Admin Tip</span>
             <p className="text-[12px] text-thxbai-muted italic leading-relaxed max-w-3xl">
-              As we no longer have the faction mod in place(rip in peace), please ensure you post a screenshot in this channel when a task is completed so it can be manually logged! Do also make sure that you do not group up with more than 4 people(1 leader + 3 members).
+              As we no longer have the faction mod in place(rip in peace), please ensure you post a screenshot in the #minecraft-server channel when a task is completed so it can be manually logged! Do also make sure that you do not group up with more than 4 people(1 leader + 3 members).
             </p>
           </div>
         </motion.div>
