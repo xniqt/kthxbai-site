@@ -88,7 +88,7 @@ export default function App() {
       name: "meow", 
       members: ["ultragaminggamer", "KotaGG", "raviolomood", "pendulesteak"], 
       completedVol1: ["hq", "horse", "farm", "ender", "heart", "breath", "rod", "redstone", "tame", "banner", "pumpkin", "egg", "apple", "map", "creeper", "bee", "axolotl", "armor", "beacons", "mace"],
-      completedVol2: ["terracotta", "pink_armor", "hive_flowers", "emerald_pyramid", "end_heads", "zoo", "goat_horn"] 
+      completedVol2: ["terracotta", "pink_armor", "hive_flowers", "emerald_pyramid", "end_heads", "zoo", "goat_horn", "amethyst_roof"] 
     },
     { 
       name: "boo", 
@@ -100,7 +100,8 @@ export default function App() {
       name: "melon", 
       members: ["Thunderstorm24", "Fet0921", "pantanaisu", "_______________s"],
       completedVol1: ["hq", "bee", "pumpkin", "horse", "farm", "banner", "redstone", "ender", "heart", "map", "axolotl", "apple", "egg", "beacons", "rod", "mace", "creeper", "tame", "breath", "armor"],
-      completedVol2: ["mooshroom", "terracotta", "smelter", "hive_flowers", "egg_cake", "zoo", "emerald_pyramid", "end_heads", "pink_armor", "sponge", "amethyst_roof", "templates", "sherds", "goat_horn"]
+      completedVol2: ["mooshroom", "terracotta", "smelter", "hive_flowers", "egg_cake", "zoo", "emerald_pyramid", "end_heads", "pink_armor", "sponge", "amethyst_roof", "templates", "sherds", "goat_horn", "disc_5", 
+        "silence", "vex_trim"]
     },
     { 
       name: "Transgender", 
