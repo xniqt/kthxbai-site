@@ -89,7 +89,7 @@ export default function App() {
       members: ["ultragaminggamer", "KotaGG", "raviolomood", "pendulesteak"], 
       completedVol1: ["hq", "horse", "farm", "ender", "heart", "breath", "rod", "redstone", "tame", "banner", "pumpkin", "egg", "apple", "map", "creeper", "bee", "axolotl", "armor", "beacons", "mace"],
       completedVol2: ["terracotta", "pink_armor", "hive_flowers", "emerald_pyramid", "end_heads", "zoo", "goat_horn", "amethyst_roof", "totems", "conduit", "spore", "smelter", "map_5x5", "vex_trim"
-        , "egg_cake", "cart_hub", "froglight"] 
+        , "egg_cake", "cart_hub", "froglight", "templates"] 
     },
     { 
       name: "boo", 
