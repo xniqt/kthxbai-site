@@ -94,7 +94,7 @@ export default function App() {
     { 
       name: "boo", 
       members: ["xniqt", "ChaosTwinRylee"], 
-      completedVol1: ["hq", "farm", "redstone", "egg", "heart", "banner", "map", "bee"],
+      completedVol1: ["hq", "farm", "redstone", "egg", "heart", "banner", "map", "bee", "tame"],
       completedVol2: ["smelter", "map_5x5"]
     },
     { 
