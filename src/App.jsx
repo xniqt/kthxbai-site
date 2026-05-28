@@ -104,12 +104,6 @@ export default function App() {
       completedVol2: ["mooshroom", "terracotta", "smelter", "hive_flowers", "egg_cake", "zoo", "emerald_pyramid", "end_heads", "pink_armor", "sponge", "amethyst_roof", "templates", "sherds", "goat_horn", "disc_5", 
         "silence", "vex_trim", "spore", "map_5x5", "conduit", "chunk_loader", "totems"]
     },
-    { 
-      name: "Transgender", 
-      members: ["WuvX"], 
-      completedVol1: ["hq"],
-      completedVol2: [] 
-    },
   ];
 
   const calculateScore = (completedIds, taskList) => {
