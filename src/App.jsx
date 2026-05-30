@@ -46,13 +46,6 @@ export default function App() {
       completedVol2: ["terracotta", "froglight", "egg_cake", "templates", "pink_armor", "hive_flowers", "goat_horn", "silence", "vex_trim", "ghast_cage", "conduit", "disc_5", "sherds", "spore", "sponge", "smelter", "god_armor", "map_5x5", "mooshroom", "monument", "end_heads", "cart_hub", "totems", "advancement", "emerald_pyramid", "zoo", "chunk_loader", "amethyst_roof"],
       completedVol3: []
     },
-    { 
-      name: "Transgender", 
-      members: ["WuvX"], 
-      completedVol1: ["hq"],
-      completedVol2: [],
-      completedVol3: []
-    },
   ];
 
   // Map volumes to tasks dynamically

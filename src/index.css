@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -8,7 +7,8 @@
   --color-thxbai-accent: #6366f1;    /* Signature Indigo */
   --color-thxbai-muted: #a1a1aa;     /* Zinc text */
   
-  --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
+  /* Reset back to standard native system fonts */
+  --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
 /* Global Selection Accent */
