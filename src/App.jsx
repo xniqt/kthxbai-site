@@ -128,7 +128,7 @@ export default function App() {
         {/* MC Status */}
         <motion.div whileHover={{ scale: 1.005 }} className="md:col-span-8 glass-card rounded-[2.5rem] p-10 flex items-center justify-between overflow-hidden relative">
           <div>
-            <h2 className="text-2xl font-bold tracking-tight mb-1 text-thxbai-accent uppercase italic tracking-wide">The Project</h2>
+            <h2 className="text-2xl font-bold tracking-tight mb-1 text-thxbai-accent uppercase italic tracking-wide">Femboy SMP</h2>
             <p className="text-thxbai-muted text-lg font-medium italic">Vol. {activeVolume} Active Operations.</p>
           </div>
           <div className="flex flex-col items-end">
