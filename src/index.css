@@ -7,8 +7,8 @@
   --color-thxbai-accent: #6366f1;    /* Signature Indigo */
   --color-thxbai-muted: #a1a1aa;     /* Zinc text */
   
-  /* Reset back to standard native system fonts */
-  --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  /* Restored original base font stack */
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
 /* Global Selection Accent */
