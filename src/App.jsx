@@ -51,61 +51,7 @@ export default function App() {
   ];
 
   // Map volumes to tasks dynamically
-  const volumeTaskMap = { 1: tasksVol1, 2: tasksVol2, 3: tasksVol3 };
-  const currentTasks = volumeTaskMap[activeVolume] || [];
-
-  const calculateScore = (completedIds, taskList) => {
-    return completedIds.reduce((total, taskId) => {
-      const task = taskList.find((t) => t.id === taskId);
-      return total + (task ? task.pts : 0);
-    }, 0);
-  };
-
-  // Generate sorted leaderboard based on active volume mapping data context
-  const leaderboard = factionsData
-    .map((faction) => {
-      const logsMap = { 1: faction.completedVol1, 2: faction.completedVol2, 3: faction.completedVol3 };
-      const activeLogs = logsMap[activeVolume] || [];
-      return {
-        ...faction,
-        score: calculateScore(activeLogs, currentTasks),
-        activeLogs
-      };
-    })
-    .sort((a, b) => b.score - a.score);
-
-  // DYNAMIC ALL-TIME COMBINED SCORES (Sums Vol 1 + Vol 2 + Vol 3 for each team)
-  const cumulativeStandings = factionsData
-    .map((faction) => {
-      const score1 = calculateScore(faction.completedVol1, tasksVol1);
-      const score2 = calculateScore(faction.completedVol2, tasksVol2);
-      const score3 = calculateScore(faction.completedVol3, tasksVol3);
-      return {
-        name: faction.name,
-        grandTotal: score1 + score2 + score3
-      };
-    })
-    .sort((a, b) => b.grandTotal - a.grandTotal);
-
-  const [totalMembers, setTotalMembers] = useState(0);
-  const [mcPlayers, setMcPlayers] = useState({ online: 0, max: 0 });
-  const [selectedFaction, setSelectedFaction] = useState(leaderboard[0]?.name || "");
-
-  useEffect(() => {
-    fetch(`https://discord.com/api/v9/invites/${DISCORD_INVITE_CODE}?with_counts=true`)
-      .then((res) => res.json())
-      .then((data) => setTotalMembers(data.approximate_member_count || 0))
-      .catch((err) => console.error(err));
-
-    fetch(`https://mcapi.us/server/status?ip=${MC_SERVER_IP}&port=${MC_SERVER_PORT}`)
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.status === "success") setMcPlayers({ online: data.players.now, max: data.players.max });
-      })
-      .catch((err) => console.error(err));
-  }, []);
-
-  const volumeTaskMap = { 1: tasksVol1, 2: tasksVol2, 3: tasksVol3 };
+const volumeTaskMap = { 1: tasksVol1, 2: tasksVol2, 3: tasksVol3 };
   const currentTasks = volumeTaskMap[activeVolume] || [];
 
   const calculateScore = (completedIds, taskList) => {
@@ -182,8 +128,8 @@ export default function App() {
         {/* MC Status */}
         <motion.div whileHover={{ scale: 1.005 }} className="md:col-span-8 glass-card rounded-[2.5rem] p-10 flex items-center justify-between overflow-hidden relative">
           <div>
-            <h2 className="text-2xl font-bold tracking-tight mb-1 text-thxbai-accent uppercase italic tracking-wide">The Project</h2>
-            <p className="text-thxbai-muted text-lg font-medium italic">Vol. {activeVolume} Active Operations.</p>
+            <h2 className="text-2xl font-bold tracking-tight mb-1 text-thxbai-accent uppercase italic tracking-wide">Femboy SMP</h2>
+            <p className="text-thxbai-muted text-lg font-medium italic">Vol. {activeVolume} Active Operation.</p>
           </div>
           <div className="flex flex-col items-end">
             <span className="text-5xl font-black tracking-tighter italic">{mcPlayers.online}<span className="text-sm text-thxbai-muted font-normal not-italic ml-1">/{mcPlayers.max || 50}</span></span>
@@ -273,9 +219,9 @@ export default function App() {
           </div>
         </motion.div>
 
-        {/* CENTERED VOLUME SELECTOR (Moved down to align perfectly above the tracker) */}
-        <div className="md:col-span-12 bg-white/[0.01] border border-white/5 p-2 rounded-[2rem] flex justify-center items-center shadow-md">
-          <div className="grid grid-cols-3 gap-2 w-full max-w-xl">
+        {/* POSITIONED & CENTERED VOLUME SELECTOR */}
+        <div className="md:col-span-12 flex justify-center items-center">
+          <div className="grid grid-cols-3 gap-2 w-full max-w-xl bg-white/[0.01] border border-white/5 p-2 rounded-[2rem] shadow-md">
             {[1, 2, 3].map((volNum) => (
               <button 
                 key={volNum}
@@ -381,7 +327,7 @@ export default function App() {
              <span className="text-xs font-bold text-thxbai-accent uppercase tracking-[0.2em] block mb-1">Join Community</span>
              <span className="text-3xl font-black italic block uppercase tracking-wide">Discord Server</span>
              <span className="text-xs text-thxbai-muted font-bold uppercase tracking-widest mt-2 flex items-center gap-1.5 opacity-60 select-none">
-               <span className="w-1.5 h-1.5 bg-thxbai-accent rounded-full animate-pulse" /> {totalMembers} Members in the void
+               <span className="w-1.5 h-1.5 bg-thxbai-accent rounded-full animate-pulse" /> {totalMembers} Members
              </span>
           </div>
           <div className="w-16 h-16 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-black group-hover:border-white transition-all duration-300 text-xl font-bold">→</div>
