@@ -53,7 +53,26 @@ export const tasksVol2 = [
   { id: "amethyst_roof", name: "Amethyst HQ Roof", pts: 150, tier: "Tier 4", desc: "Cover your entire HQ roof in Amethyst Clusters." },
 ];
 
-// Placeholder for your Volume 3 list to populate when ready!
 export const tasksVol3 = [
-  { id: "test", name: "test", pts: 67, tier: "Tier test", desc: "test" },
+  { id: "all_trims", name: "20 Unique Armor Trims", pts: 30, tier: "Tier 1", desc: "Collect and display all 20 unique armor trims on armor stands." },
+  { id: "all_signs", name: "11 Wood Sign Variants Line", pts: 30, tier: "Tier 1", desc: "Place all 11 types of Wood Signs in a line, each labeled with its wood type." },
+  { id: "all_banners", name: "Every Banner Pattern", pts: 30, tier: "Tier 1", desc: "Collect and display 1 of every single pattern variant of Banner." },
+  { id: "raw_ore_blocks", name: "Full Chest of Raw Ore Blocks", pts: 30, tier: "Tier 1", desc: "Obtain a stack (64) of Raw Iron, Gold, and Copper Blocks in a single chest." },
+  { id: "scutes_stack", name: "Stack of Scutes", pts: 30, tier: "Tier 1", desc: "Obtain a full stack (64) of Scutes." },
+  { id: "splash_potions", name: "12 Splash Potion Effects", pts: 30, tier: "Tier 1", desc: "Collect 1 of every single type of potion effect in splash form (min 12 unique)." },
+  // Tier 2: Infrastructure & Structural Feats (60 pts)
+  { id: "nether_highway", name: "1,000-Block Ice Highway", pts: 60, tier: "Tier 2", desc: "Build a functional Ice Boat Highway in the Nether spanning at least 1,000 blocks." },
+  { id: "sorting_system", name: "15-Item Automated Sorter", pts: 60, tier: "Tier 2", desc: "Construct a redstone sorting system that automatically filters at least 15 different item types." },
+  { id: "jungle_treehouse", name: "Build Limit Treehouse", pts: 60, tier: "Tier 2", desc: "Build a treehouse inside a giant Jungle Tree reaching Y=320 with a bedroom and storage." },
+  { id: "auto_tree_farm", name: "Automated Tree Farm", pts: 60, tier: "Tier 2", desc: "Construct an operational tree farm using a tnt-duper or wither-cage." },
+  { id: "ocean_dome", name: "50x50 Ocean Glass Dome", pts: 60, tier: "Tier 2", desc: "Drain a 50x50 block area of an ocean down to the seabed and build a glass dome over it." },
+  // Tier 3: Rare Entity & Breeding Challenges (100 pts)
+  { id: "all_wolves", name: "All 9 Wolf Variants Kennel", pts: 100, tier: "Tier 3", desc: "Breed and display every single variant of Wolf (all 9 types) together in a kennel." },
+  { id: "charged_creeper", name: "Obsidian Creeper Cell", pts: 100, tier: "Tier 3", desc: "Trap a Charged Creeper inside a secure glass obsidian containment cell safely." },
+  { id: "tame_trio", name: "Ocelot, Cat, & Wolf Trio", pts: 100, tier: "Tier 3", desc: "Tame and display an Ocelot, a Cat, and a Wolf sitting side-by-side on diamond blocks." },
+  { id: "diamond_horses", name: "5 Diamond Armor Horses", pts: 100, tier: "Tier 3", desc: "Breed and display 5 different variants of Horses, all wearing Diamond Horse Armor." },
+  // Tier 4: The Ultimate End-Game Grinds (250 pts)
+  { id: "netherite_pyramid", name: "Netherite Block Pyramid", pts: 250, tier: "Tier 4", desc: "Build a pyramid entirely of Netherite Blocks (minimum 2 levels deep: 3x3 top, 5x5 base, 34 blocks total)." },
+  { id: "shulker_chest", name: "Full Chest of Shulker Boxes", pts: 250, tier: "Tier 4", desc: "Obtain a full double chest (27 slots) completely filled with Shulker Boxes." },
+  { id: "clear_ancient_city", name: "Purged Ancient City", pts: 250, tier: "Tier 4", desc: "Clear an entire Ancient City of all Sculk, Shriekers, and Catalysts, lit up with torches." }
 ];
