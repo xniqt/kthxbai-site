@@ -29,7 +29,7 @@ export default function App() {
       name: "meow", 
       members: ["ultragaminggamer", "KotaGG", "raviolomood", "pendulesteak"], 
       completedVol1: ["hq", "tame", "banner", "rod", "bee", "redstone", "heart", "ender", "pumpkin", "breath", "farm", "map", "creeper", "egg", "horse", "apple", "mace", "armor", "beacons", "axolotl"],
-      completedVol2: ["terracotta", "froglight", "egg_cake", "templates", "pink_armor", "hive_flowers", "goat_horn", "silence", "vex_trim", "ghast_cage", "conduit", "disc_5", "sherds", "spore", "sponge", "smelter", "god_armor", "map_5x5", "mooshroom", "monument", "end_heads", "cart_hub", "totems", "emerald_pyramid", "zoo", "chunk_loader"],
+      completedVol2: ["terracotta", "froglight", "egg_cake", "templates", "pink_armor", "hive_flowers", "goat_horn", "silence", "vex_trim", "ghast_cage", "conduit", "disc_5", "sherds", "spore", "sponge", "smelter", "god_armor", "map_5x5", "mooshroom", "monument", "end_heads", "cart_hub", "totems", "emerald_pyramid", "zoo", "chunk_loader", "amethyst_roof"],
       completedVol3: [] // Ready for Volume 3 logs!
     },
     { 
@@ -43,7 +43,7 @@ export default function App() {
       name: "melon", 
       members: ["Thunderstorm24", "Fet0921", "pantanaisu", "_______________s"],
       completedVol1: ["hq", "tame", "banner", "rod", "bee", "redstone", "heart", "ender", "pumpkin", "breath", "farm", "map", "creeper", "egg", "horse", "apple", "mace", "armor", "beacons", "axolotl"],
-      completedVol2: ["terracotta", "froglight", "egg_cake", "templates", "pink_armor", "hive_flowers", "goat_horn", "silence", "vex_trim", "ghast_cage", "conduit", "disc_5", "sherds", "spore", "sponge", "smelter", "god_armor", "map_5x5", "mooshroom", "monument", "end_heads", "cart_hub", "totems", "advancement", "emerald_pyramid", "zoo", "chunk_loader"],
+      completedVol2: ["terracotta", "froglight", "egg_cake", "templates", "pink_armor", "hive_flowers", "goat_horn", "silence", "vex_trim", "ghast_cage", "conduit", "disc_5", "sherds", "spore", "sponge", "smelter", "god_armor", "map_5x5", "mooshroom", "monument", "end_heads", "cart_hub", "totems", "advancement", "emerald_pyramid", "zoo", "chunk_loader", "amethyst_roof"],
       completedVol3: []
     },
     { 
