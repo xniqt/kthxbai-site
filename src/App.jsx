@@ -15,6 +15,7 @@ const MinecraftHead = ({ username }) => (
 );
 
 export default function App() {
+  // CONFIGURATION
   const DISCORD_INVITE_CODE = "femboy"; 
   const DISCORD_INVITE_LINK = `https://discord.gg/${DISCORD_INVITE_CODE}`;
   const MC_SERVER_IP = "199.115.72.77";
@@ -60,6 +61,7 @@ export default function App() {
     }, 0);
   };
 
+  // Generate sorted leaderboard based on active volume mapping data context
   const leaderboard = factionsData
     .map((faction) => {
       const logsMap = { 1: faction.completedVol1, 2: faction.completedVol2, 3: faction.completedVol3 };
@@ -71,6 +73,19 @@ export default function App() {
       };
     })
     .sort((a, b) => b.score - a.score);
+
+  // DYNAMIC ALL-TIME COMBINED SCORES (Sums Vol 1 + Vol 2 + Vol 3 for each team)
+  const cumulativeStandings = factionsData
+    .map((faction) => {
+      const score1 = calculateScore(faction.completedVol1, tasksVol1);
+      const score2 = calculateScore(faction.completedVol2, tasksVol2);
+      const score3 = calculateScore(faction.completedVol3, tasksVol3);
+      return {
+        name: faction.name,
+        grandTotal: score1 + score2 + score3
+      };
+    })
+    .sort((a, b) => b.grandTotal - a.grandTotal);
 
   const [totalMembers, setTotalMembers] = useState(0);
   const [mcPlayers, setMcPlayers] = useState({ online: 0, max: 0 });
@@ -125,7 +140,7 @@ export default function App() {
         </motion.div>
 
         {/* VOLUME SELECTOR */}
-        <div className="md:col-span-12 flex gap-2 mb-1">
+        <div className="md:col-span-12 flex gap-3 mb-2">
           {[1, 2, 3].map((volNum) => (
             <button 
               key={volNum}
@@ -142,21 +157,43 @@ export default function App() {
           ))}
         </div>
 
-        {/* ONGOING EVENT / BIO */}
-        <motion.div className="md:col-span-12 glass-card rounded-[3rem] p-12 min-h-[380px] flex flex-col justify-between border-l-4 border-l-thxbai-accent">
-          <div>
-            <div className="flex items-center gap-3 mb-6 select-none">
-              <span className="px-3 py-1 rounded-full bg-thxbai-accent/20 text-thxbai-accent text-[10px] font-black uppercase tracking-widest border border-thxbai-accent/10">Ongoing Phase</span>
-              <span className="text-thxbai-muted text-[10px] font-bold uppercase tracking-widest">Nitro Reward</span>
+        {/* ONGOING EVENT / BIO WITH DYNAMIC TOTAL LEADERBOARD */}
+        <motion.div className="md:col-span-12 glass-card rounded-[3rem] p-12 min-h-[420px] flex flex-col justify-between border-l-4 border-l-thxbai-accent">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            
+            {/* Left Column: Description info */}
+            <div className="lg:col-span-7">
+              <div className="flex items-center gap-3 mb-6 select-none">
+                <span className="px-3 py-1 rounded-full bg-thxbai-accent/20 text-thxbai-accent text-[10px] font-black uppercase tracking-widest border border-thxbai-accent/10">Ongoing Event</span>
+                <span className="text-thxbai-muted text-[10px] font-bold uppercase tracking-widest">Nitro Reward</span>
+              </div>
+              <h3 className="text-5xl font-black leading-[1.1] mb-6 tracking-tighter italic text-white uppercase select-none">Volume {activeVolume} <br /> Objectives.</h3>
+              <p className="text-thxbai-muted text-md max-w-xl font-medium leading-relaxed mb-4">
+                {activeVolume === 1 && "The original race to dominance. Complete all 20 standard Vanilla tasks."}
+                {activeVolume === 2 && "The advanced phase. Tiered difficulty levels ranging from collection to complex automation finds."}
+                {activeVolume === 3 && "The final frontier. End-game grinds, structural feats, and massive scale collection logistics."}
+              </p>
             </div>
-            <h3 className="text-5xl font-black leading-[1.1] mb-6 tracking-tighter italic text-white uppercase select-none">Volume {activeVolume} <br /> Objectives.</h3>
-            <p className="text-thxbai-muted text-md max-w-2xl font-medium leading-relaxed mb-6">
-              {activeVolume === 1 && "The original race to dominance. Complete all 20 standard Vanilla tasks."}
-              {activeVolume === 2 && "The advanced phase. Tiered difficulty levels ranging from collection to complex automation finds."}
-              {activeVolume === 3 && "The final frontier. End-game grinds, structural feats, and massive scale collection logistics."}
-            </p>
+
+            {/* Right Column: Combined Season Standings */}
+            <div className="lg:col-span-5 bg-white/[0.02] border border-white/5 rounded-[2rem] p-6 w-full">
+              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-thxbai-accent block mb-4">Season All-Time Combined Score</span>
+              <div className="space-y-3">
+                {cumulativeStandings.map((team, index) => (
+                  <div key={team.name} className="flex justify-between items-center bg-white/[0.02] px-4 py-2.5 rounded-xl border border-white/5">
+                    <div className="flex items-center gap-3">
+                      <span className={`text-xs font-black italic ${index === 0 ? "text-yellow-500" : "text-thxbai-muted/50"}`}>#{index + 1}</span>
+                      <span className="text-sm font-bold text-white/90">{team.name}</span>
+                    </div>
+                    <span className="text-sm font-black text-thxbai-accent">{team.grandTotal} <span className="text-[9px] text-thxbai-muted font-normal tracking-wide not-italic ml-0.5">pts</span></span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
           </div>
-          <div className="border-t border-white/5 pt-6">
+
+          <div className="border-t border-white/5 pt-6 mt-6">
             <span className="block text-[10px] font-black text-thxbai-accent uppercase mb-2 italic underline tracking-wider select-none">Admin Tip</span>
             <p className="text-[12px] text-thxbai-muted italic leading-relaxed max-w-3xl">
               As we no longer have the faction mod in place(rip in peace), please ensure you post a screenshot in this channel when a task is completed so it can be manually logged! Do also make sure that you do not group up with more than 4 people(1 leader + 3 members).
@@ -166,7 +203,7 @@ export default function App() {
 
         {/* LEADERBOARD CARD */}
         <motion.div className="md:col-span-12 glass-card rounded-[3rem] p-10 border-t-4 border-t-yellow-500/20 shadow-xl">
-          <div className="flex justify-between items-center mb-8">
+          <div className="flex justify-between items-center mb-10">
             <div>
               <h3 className="text-3xl font-black italic uppercase tracking-tight select-none">Leaderboard</h3>
               <p className="text-thxbai-muted text-xs font-bold mt-1 uppercase tracking-widest opacity-50">Vol. {activeVolume} Rankings</p>
@@ -174,9 +211,9 @@ export default function App() {
             <div className="w-10 h-10 rounded-full bg-yellow-500/10 border border-yellow-500/20 flex items-center justify-center text-yellow-500 text-lg font-bold italic select-none">★</div>
           </div>
           
-          <div className="grid grid-cols-1 gap-3">
+          <div className="grid grid-cols-1 gap-4">
             {leaderboard.map((faction, idx) => (
-              <div key={idx} className={`flex flex-col md:flex-row justify-between items-start md:items-center p-6 rounded-[2.5rem] border transition-all duration-300 ${idx === 0 ? 'bg-yellow-500/5 border-yellow-500/15 shadow-[0_0_40px_rgba(234,179,8,0.03)]' : 'bg-white/[0.01] border-white/5'}`}>
+              <div key={idx} className={`flex flex-col md:flex-row justify-between items-start md:items-center p-6 rounded-[2.5rem] border transition-all duration-300 ${idx === 0 ? 'bg-yellow-500/5 border-yellow-500/15 shadow-[0_0_40px_rgba(234,179,8,0.03)]' : 'bg-white/[0.02] border-white/5'}`}>
                 <div className="flex items-center gap-6 mb-4 md:mb-0">
                   <span className={`text-3xl font-black italic w-8 select-none ${idx === 0 ? 'text-yellow-500' : 'text-thxbai-muted/30'}`}>#{idx + 1}</span>
                   <div>
@@ -200,7 +237,7 @@ export default function App() {
           </div>
         </motion.div>
 
-        {/* PROGRESS TRACKER WITH TIER FILTERS */}
+        {/* PROGRESS TRACKER */}
         <motion.div className="md:col-span-12 glass-card rounded-[3rem] p-10 border-l-4 border-l-emerald-500/30">
           <div className="flex flex-col xl:flex-row justify-between items-start xl:items-center gap-5 mb-8">
             <div>
@@ -223,7 +260,6 @@ export default function App() {
             </div>
           </div>
 
-          {/* Sub-Filter System for Tiers */}
           {activeVolume > 1 && (
             <div className="flex flex-wrap gap-1.5 mb-6 bg-white/[0.02] border border-white/5 p-1.5 rounded-2xl max-w-max">
               {["All", "Tier 1", "Tier 2", "Tier 3", "Tier 4"].map((tierName) => (
@@ -283,7 +319,7 @@ export default function App() {
           )}
         </motion.div>
 
-        {/* Discord Action Box */}
+        {/* Discord Link */}
         <motion.a href={DISCORD_INVITE_LINK} target="_blank" rel="noopener noreferrer" className="md:col-span-12 glass-card rounded-[2.5rem] p-10 flex items-center justify-between group transition-all duration-300 hover:bg-thxbai-accent/[0.02]">
           <div>
              <span className="text-xs font-bold text-thxbai-accent uppercase tracking-[0.2em] block mb-1">Join Community</span>
