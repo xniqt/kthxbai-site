@@ -59,7 +59,7 @@ export const tasksVol3 = [
   { id: "all_banners", name: "Every Banner Pattern", pts: 30, tier: "Tier 1", desc: "Collect and display 1 of every single pattern variant of Banner." },
   { id: "raw_ore_blocks", name: "Full Chest of Raw Ore Blocks", pts: 30, tier: "Tier 1", desc: "Obtain a stack (64) of Raw Iron, Gold, and Copper Blocks in a single chest." },
   { id: "scutes_stack", name: "Stack of Scutes", pts: 30, tier: "Tier 1", desc: "Obtain a full stack (64) of Scutes." },
-  { id: "gamba", name: "I'm Addicted", pts: 30, tier: "Tier 1", desc: "Create a gamba machine of any kind." },
+  { id: "gamba", name: "I am Addicted", pts: 30, tier: "Tier 1", desc: "Create a gamba machine of any kind." },
   // Tier 2: Infrastructure & Structural Feats (60 pts)
   { id: "nether_highway", name: "1,000-Block Ice Highway", pts: 60, tier: "Tier 2", desc: "Build a functional Ice Boat Highway in the Nether spanning at least 1,000 blocks." },
   { id: "sorting_system", name: "15-Item Automated Sorter", pts: 60, tier: "Tier 2", desc: "Construct a redstone sorting system that automatically filters at least 15 different item types." },
