@@ -69,7 +69,7 @@ export const tasksVol3 = [
   // Tier 3: Rare Entity & Breeding Challenges (100 pts)
   { id: "all_wolves", name: "All 9 Wolf Variants Kennel", pts: 100, tier: "Tier 3", desc: "Breed and display every single variant of Wolf (all 9 types) together in a kennel." },
   { id: "charged_creeper", name: "Obsidian Creeper Cell", pts: 100, tier: "Tier 3", desc: "Trap a Charged Creeper inside a secure glass obsidian containment cell safely." },
-  { id: "tame_trio", name: "Ocelot, Cat, & Wolf Trio", pts: 100, tier: "Tier 3", desc: "Tame and display an Ocelot, a Cat, and a Wolf sitting side-by-side on diamond blocks." },
+  { id: "tame_trio", name: "Cat & Wolf Duo", pts: 100, tier: "Tier 3", desc: "Tame and display a Cat and a Wolf sitting side-by-side on diamond blocks." },
   { id: "diamond_horses", name: "5 Diamond Armor Horses", pts: 100, tier: "Tier 3", desc: "Breed and display 5 different variants of Horses, all wearing Diamond Horse Armor." },
   // Tier 4: The Ultimate End-Game Grinds (250 pts)
   { id: "netherite_pyramid", name: "Netherite Block Pyramid", pts: 250, tier: "Tier 4", desc: "Build a pyramid entirely of Netherite Blocks (minimum 2 levels deep: 3x3 top, 5x5 base, 34 blocks total)." },
