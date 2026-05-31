@@ -73,6 +73,6 @@ export const tasksVol3 = [
   { id: "diamond_horses", name: "5 Diamond Armor Horses", pts: 100, tier: "Tier 3", desc: "Breed and display 5 different variants of Horses, all wearing Diamond Horse Armor." },
   // Tier 4: The Ultimate End-Game Grinds (250 pts)
   { id: "netherite_pyramid", name: "Netherite Block Pyramid", pts: 250, tier: "Tier 4", desc: "Build a pyramid entirely of Netherite Blocks (minimum 2 levels deep: 3x3 top, 5x5 base, 34 blocks total)." },
-  { id: "shulker_chest", name: "Full Chest of Shulker Boxes", pts: 250, tier: "Tier 4", desc: "Obtain a full double chest (27 slots) completely filled with Shulker Boxes." },
+  { id: "shulker_chest", name: "Full Chest of Shulker Boxes", pts: 250, tier: "Tier 4", desc: "Obtain a full double chest (54 slots) completely filled with Shulker Boxes." },
   { id: "clear_ancient_city", name: "Purged Ancient City", pts: 250, tier: "Tier 4", desc: "Clear an entire Ancient City of all Sculk, Shriekers, and Catalysts, lit up with torches." }
 ];
