@@ -67,7 +67,7 @@ export const tasksVol3 = [
   { id: "auto_tree_farm", name: "Automated Tree Farm", pts: 60, tier: "Tier 2", desc: "Construct an operational tree farm using a tnt-duper or wither-cage." },
   { id: "ocean_dome", name: "50x50 Ocean Glass Dome", pts: 60, tier: "Tier 2", desc: "Drain a 50x50 block area of an ocean down to the seabed and build a glass dome over it." },
   // Tier 3: Rare Entity & Breeding Challenges (100 pts)
-  { id: "shopping", name: "Open up a Store", pts: 100, tier: "Tier 3", desc: "Open up a store in the shopping disctrict at /spawn." }
+  { id: "shopping", name: "Open up a Store", pts: 100, tier: "Tier 3", desc: "Open up a store in the shopping disctrict at /spawn." },
   { id: "all_wolves", name: "All 9 Wolf Variants Kennel", pts: 100, tier: "Tier 3", desc: "Breed and display every single variant of Wolf (all 9 types) together in a kennel." },
   { id: "charged_creeper", name: "Obsidian Creeper Cell", pts: 100, tier: "Tier 3", desc: "Trap a Charged Creeper inside a secure glass obsidian containment cell safely." },
   { id: "tame_trio", name: "Cat & Wolf Duo", pts: 100, tier: "Tier 3", desc: "Tame and display a Cat and a Wolf sitting side-by-side on diamond blocks." },
