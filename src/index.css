@@ -13,10 +13,15 @@
   --font-display: "Fredoka", sans-serif;
 }
 
-/* Apply display font to heavy titles for that perfect bubbly pop */
+/* Apply display font cleanly to headings without breaking container limits */
 h1, h2, h3, .font-black {
   font-family: var(--font-display) !important;
-  letter-spacing: -0.02em !important;
+}
+
+/* Targeted structural fix for the brand header to resolve text overflow */
+h1.text-6xl {
+  font-size: 3.25rem !important;      /* Drops size slightly to lock it within the glass card boundary */
+  letter-spacing: -0.05em !important;  /* Gently tightens kerning to handle Fredoka's wide proportions */
 }
 
 /* Global Selection Accent */
