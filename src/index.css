@@ -20,8 +20,9 @@ h1, h2, h3, .font-black {
 
 /* Targeted structural fix for the brand header to resolve text overflow */
 h1.text-6xl {
-  font-size: 3.25rem !important;      /* Drops size slightly to lock it within the glass card boundary */
-  letter-spacing: -0.05em !important;  /* Gently tightens kerning to handle Fredoka's wide proportions */
+  font-size: clamp(2.5rem, 5vw, 3.5rem) !important; /* Uses fluid sizing depending on window scope */
+  letter-spacing: -0.04em !important;             /* Balanced kerning tracking */
+  line-height: 1 !important;
 }
 
 /* Global Selection Accent */

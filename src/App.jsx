@@ -120,24 +120,42 @@ const volumeTaskMap = { 1: tasksVol1, 2: tasksVol2, 3: tasksVol3 };
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-5">
         
         {/* Brand Header */}
-        <motion.div whileHover={{ scale: 1.005 }} className="md:col-span-4 glass-card rounded-[2.5rem] p-10 flex flex-col justify-center min-h-[200px]">
-          <h1 className="text-6xl font-black tracking-tighter italic mb-2 text-white uppercase select-none">kthxbai</h1>
-          <p className="text-thxbai-muted text-xs font-bold tracking-[0.3em] uppercase opacity-50">Est. 2026 // i hate it here</p>
+        <motion.div 
+          whileHover={{ scale: 1.005 }} 
+          className="md:col-span-4 glass-card rounded-[2.5rem] p-6 sm:p-10 flex flex-col justify-center items-center md:items-start text-center md:text-left min-h-[200px]">
+          <h1 className="text-5xl sm:text-6xl font-black tracking-tighter italic mb-2 text-white uppercase select-none leading-none">
+            kthxbai
+          </h1>
+          <p className="text-thxbai-muted text-[10px] sm:text-xs font-bold tracking-[0.3em] uppercase opacity-50">
+            Est. 2026 // i hate it here
+          </p>
         </motion.div>
 
         {/* MC Status */}
-        <motion.div whileHover={{ scale: 1.005 }} className="md:col-span-8 glass-card rounded-[2.5rem] p-10 flex items-center justify-between overflow-hidden relative">
-          <div>
-            <h2 className="text-2xl font-bold tracking-tight mb-1 text-thxbai-accent uppercase italic tracking-wide">Femboy SMP</h2>
-            <p className="text-thxbai-muted text-lg font-medium italic">Vol. {activeVolume} Active Operation.</p>
-          </div>
-          <div className="flex flex-col items-end">
-            <span className="text-5xl font-black tracking-tighter italic">{mcPlayers.online}<span className="text-sm text-thxbai-muted font-normal not-italic ml-1">/{mcPlayers.max || 50}</span></span>
-            <span className="flex items-center gap-2 text-[10px] uppercase font-black text-green-500 tracking-[0.2em] mt-2 select-none">
-              <span className="w-2 h-2 bg-green-500 rounded-full animate-ping" /> Active
+        <motion.div 
+        whileHover={{ scale: 1.005 }} 
+        className="md:col-span-8 glass-card rounded-[2.5rem] p-6 sm:p-10 flex items-center justify-between overflow-hidden relative gap-4">
+        <div className="min-w-0">
+          <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-1 text-thxbai-accent uppercase italic tracking-wide truncate">
+            Femboy SMP
+          </h2>
+          <p className="text-thxbai-muted text-sm sm:text-lg font-medium italic truncate">
+            Vol. {activeVolume} Active Operation.
+          </p>
+        </div>
+        <div className="flex flex-col items-end shrink-0">
+          {/* whitespace-nowrap locks the text and slash together onto a single line */}
+          <span className="text-4xl sm:text-5xl font-black tracking-tighter italic whitespace-nowrap">
+            {mcPlayers.online}
+            <span className="text-xs sm:text-sm text-thxbai-muted font-normal not-italic ml-1">
+              /{mcPlayers.max || 50}
             </span>
-          </div>
-        </motion.div>
+          </span>
+          <span className="flex items-center gap-2 text-[10px] uppercase font-black text-green-500 tracking-[0.2em] mt-2 select-none">
+            <span className="w-2 h-2 bg-green-500 rounded-full animate-ping" /> Active
+          </span>
+        </div>
+      </motion.div>
 
         {/* ONGOING EVENT / BIO WITH DYNAMIC TOTAL LEADERBOARD */}
         <motion.div className="md:col-span-12 glass-card rounded-[3rem] p-12 min-h-[420px] flex flex-col justify-between border-l-4 border-l-thxbai-accent">
