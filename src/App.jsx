@@ -37,6 +37,19 @@ const volumeTaskMap = { 1: tasksVol1, 2: tasksVol2, 3: tasksVol3 };
     }, 0);
   };
 
+  // Generate sorted leaderboard based on active volume mapping data context
+  const leaderboard = factionsData
+    .map((faction) => {
+      const logsMap = { 1: faction.completedVol1, 2: faction.completedVol2, 3: faction.completedVol3 };
+      const activeLogs = logsMap[activeVolume] || [];
+      return {
+        ...faction,
+        score: calculateScore(activeLogs, currentTasks),
+        activeLogs
+      };
+    })
+    .sort((a, b) => b.score - a.score);
+
   // DYNAMIC ALL-TIME COMBINED SCORES
   const cumulativeStandings = factionsData
     .map((faction) => {
