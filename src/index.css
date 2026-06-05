@@ -3,14 +3,14 @@
 
 @theme {
   /* Femboy Flag Color Palette Mapping */
-  --color-thxbai-dark: #0a0a0c;       /* Ultra-deep soft midnight black */
-  --color-thxbai-card: #131318;       /* Clean, subtle tinted card panels */
-  --color-thxbai-accent: #ffb7c5;     /* Main Soft Pastel Pink */
-  --color-thxbai-muted: #cbd5e1;      /* Light slate text for great contrast */
+  --color-thxbai-dark: #0c0a0e;       /* Swapped to a cute, ultra-deep pastel-tinted midnight purple */
+  --color-thxbai-card: #16121e;       /* Richer, slightly brighter purple-tinted card panels for pop */
+  --color-thxbai-accent: #ffb7c5;     /* Iconic Femboy Soft Pastel Pink */
+  --color-thxbai-muted: #cbd5e1;      /* Light slate text */
   
   /* Additional Femboy Accents for secondary tracking */
-  --color-femboy-blue: #b3e5fc;       /* Soft Pastel Sky Blue */
-  --color-femboy-white: #f8fafc;      /* Crisp Powder White */
+  --color-femboy-blue: #a6e3e9;       /* Vibrant Pastel Cyan/Sky Blue */
+  --color-femboy-white: #ffffff;      /* Pure Pop White */
   
   /* Fonts */
   --font-sans: "Quicksand", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -34,11 +34,11 @@ h1.text-6xl {
   color: #ffffff;
 }
 
-/* Premium Glass Card Base */
+/* Premium Glass Card Base with increased saturation for that "poppy" feel */
 .glass-card {
-  background: rgba(19, 19, 24, 0.7);
-  backdrop-filter: blur(24px) saturate(180%);
-  border: 1px solid rgba(255, 183, 197, 0.08); /* Faint pink border highlight */
+  background: rgba(22, 18, 30, 0.75);
+  backdrop-filter: blur(24px) saturate(210%);
+  border: 1px solid rgba(255, 183, 197, 0.15); /* Brightened pink card border highlight */
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
 }
 
@@ -53,11 +53,38 @@ h1.text-6xl {
   flex-shrink: 0 !important;
 }
 
-/* Theme-Reactive Ambient Background Glow - Pastel Pink Ambient Pulse */
+/* --- LEADERBOARD #1 CATCH & COLOR REMAP --- */
+
+/* Hijack the yellow border and background to make the #1 team pop with pastel pink/purple magic */
+.bg-yellow-500\/5.border-yellow-500\/15 {
+  background: rgba(255, 183, 197, 0.08) !important;
+  border-color: rgba(255, 183, 197, 0.4) !important;
+  box-shadow: 0 0 30px rgba(255, 183, 197, 0.1) !important;
+}
+
+/* Remap the #1 spot text and badges to use a beautiful vibrant pastel blue instead of yellow */
+.text-yellow-500 {
+  color: #a6e3e9 !important; /* Sweet pastel cyan */
+}
+
+/* Remap the star circle badge icon from yellow-500 background/borders to pastel pink/blue */
+.bg-yellow-500\/10.border-yellow-500\/20 {
+  background-color: rgba(166, 227, 233, 0.15) !important;
+  border-color: rgba(166, 227, 233, 0.3) !important;
+}
+
+/* Remap the border accent on the leaderboard card block */
+.border-t-yellow-500\/20 {
+  border-top-color: rgba(166, 227, 233, 0.3) !important;
+}
+
+/* --- END LEADERBOARD REMAP --- */
+
+/* Theme-Reactive Ambient Background Glow - Massive Pink & Blue Atmosphere pop */
 div[className*="bg-thxbai-accent/12"] {
-  background-color: #ffb7c5 !important;
-  opacity: 0.15 !important;
-  filter: blur(140px) !important;
+  background: radial-gradient(circle, #ffb7c5 0%, #a6e3e9 100%) !important;
+  opacity: 0.22 !important; /* Boosted visibility for a colorful vibe */
+  filter: blur(130px) !important;
 }
 
 /* Scrollbar tracking refinement mapped to Femboy Sky Blue */
@@ -69,10 +96,10 @@ div[className*="bg-thxbai-accent/12"] {
   border-radius: 10px;
 }
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: rgba(179, 229, 252, 0.25);
+  background: rgba(166, 227, 233, 0.3);
   border-radius: 10px;
   transition: background 0.2s ease;
 }
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: rgba(179, 229, 252, 0.5);
+  background: rgba(166, 227, 233, 0.6);
 }
