@@ -2,44 +2,65 @@
 @import "tailwindcss";
 
 @theme {
-  /* Official thxbai color palette */
-  --color-thxbai-dark: #080808;      /* Deep black */
-  --color-thxbai-card: #121212;      /* Card background */
-  --color-thxbai-accent: #6366f1;    /* Signature Indigo */
-  --color-thxbai-muted: #a1a1aa;     /* Zinc text */
+  /* Femboy Flag Color Palette Mapping */
+  --color-thxbai-dark: #0a0a0c;       /* Ultra-deep soft midnight black */
+  --color-thxbai-card: #131318;       /* Clean, subtle tinted card panels */
+  --color-thxbai-accent: #ffb7c5;     /* Main Soft Pastel Pink */
+  --color-thxbai-muted: #cbd5e1;      /* Light slate text for great contrast */
   
-  /* Friendly, highly-readable Femboy community aesthetic font stacks */
+  /* Additional Femboy Accents for secondary tracking */
+  --color-femboy-blue: #b3e5fc;       /* Soft Pastel Sky Blue */
+  --color-femboy-white: #f8fafc;      /* Crisp Powder White */
+  
+  /* Fonts */
   --font-sans: "Quicksand", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-display: "Fredoka", sans-serif;
 }
 
-/* Apply display font cleanly to headings without breaking container limits */
+/* Global Heading Font Settings */
 h1, h2, h3, .font-black {
   font-family: var(--font-display) !important;
 }
 
-/* Targeted structural fix for the brand header to resolve text overflow */
+/* Structural fix for smaller or un-maximized windows */
 h1.text-6xl {
-  font-size: clamp(2.5rem, 5vw, 3.5rem) !important; /* Uses fluid sizing depending on window scope */
-  letter-spacing: -0.04em !important;             /* Balanced kerning tracking */
-  line-height: 1 !important;
+  font-size: clamp(2.5rem, 4vw, 3.25rem) !important; 
+  letter-spacing: -0.04em !important;
 }
 
-/* Global Selection Accent */
+/* Global Selection Accent - Using Pastel Pink */
 ::selection {
-  background-color: rgba(99, 102, 241, 0.4);
+  background-color: rgba(255, 183, 197, 0.4);
   color: #ffffff;
 }
 
-/* Premium Card Base */
+/* Premium Glass Card Base */
 .glass-card {
-  background: rgba(18, 18, 18, 0.65);
-  backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(19, 19, 24, 0.7);
+  backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 183, 197, 0.08); /* Faint pink border highlight */
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
 }
 
-/* Scrollbar refinement */
+/* Fixes for small window layout compression */
+.md\:col-span-4.glass-card {
+  align-items: center !important;
+  text-align: center !important;
+}
+
+.flex.flex-col.items-end {
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+}
+
+/* Theme-Reactive Ambient Background Glow - Pastel Pink Ambient Pulse */
+div[className*="bg-thxbai-accent/12"] {
+  background-color: #ffb7c5 !important;
+  opacity: 0.15 !important;
+  filter: blur(140px) !important;
+}
+
+/* Scrollbar tracking refinement mapped to Femboy Sky Blue */
 .custom-scrollbar::-webkit-scrollbar {
   width: 5px;
 }
@@ -48,10 +69,10 @@ h1.text-6xl {
   border-radius: 10px;
 }
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: rgba(99, 102, 241, 0.25);
+  background: rgba(179, 229, 252, 0.25);
   border-radius: 10px;
   transition: background 0.2s ease;
 }
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: rgba(99, 102, 241, 0.5);
+  background: rgba(179, 229, 252, 0.5);
 }
