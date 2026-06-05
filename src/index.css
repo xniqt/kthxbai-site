@@ -2,30 +2,30 @@
 @import "tailwindcss";
 
 @theme {
-  /* Femboy Flag Color Palette Mapping */
-  --color-thxbai-dark: #110d1a;       /* Dark midnight violet background for integrated depth */
-  --color-thxbai-card: #181424;       /* Balanced card color value that melts into the body tone */
-  --color-thxbai-accent: #ffb7c5;     /* Iconic Femboy Soft Pastel Pink */
-  --color-thxbai-muted: #cbd5e1;      /* Light slate text */
+  /* Restored original deep black canvas and opaque card values */
+  --color-thxbai-dark: #080808;       /* Back to crisp deep black background[cite: 7] */
+  --color-thxbai-card: #121212;       /* Back to uniform solid card panels[cite: 7] */
+  --color-thxbai-accent: #ffb7c5;     /* Iconic Femboy Soft Pastel Pink[cite: 7] */
+  --color-thxbai-muted: #a1a1aa;      /* Zinc text[cite: 7] */
   
-  /* Additional Femboy Accents for secondary tracking */
+  /* Kept Poppy Femboy Accents */
   --color-femboy-blue: #a6e3e9;       /* Vibrant Pastel Cyan/Sky Blue */
   --color-femboy-white: #ffffff;      /* Pure Pop White */
   
   /* Fonts */
-  --font-sans: "Quicksand", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-display: "Fredoka", sans-serif;
+  --font-sans: "Quicksand", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; /*[cite: 7] */
+  --font-display: "Fredoka", sans-serif; /*[cite: 7] */
 }
 
 /* Global Heading Font Settings */
 h1, h2, h3, .font-black {
-  font-family: var(--font-display) !important;
+  font-family: var(--font-display) !important; /*[cite: 7] */
 }
 
 /* Structural fix for smaller or un-maximized windows */
 h1.text-6xl {
   font-size: clamp(2.5rem, 4vw, 3.25rem) !important; 
-  letter-spacing: -0.04em !important;
+  letter-spacing: -0.04em !important; /*[cite: 7] */
 }
 
 /* Global Selection Accent - Using Pastel Pink */
@@ -34,15 +34,12 @@ h1.text-6xl {
   color: #ffffff;
 }
 
-/* 
-   PREMIUM BLENDED GLASS CARDS 
-   Lower opacity and smoother saturation allow the cards to organically sink into the backdrop
-*/
+/* Restored original premium high-contrast glass card proportions */
 .glass-card {
-  background: rgba(24, 20, 36, 0.45) !important; /* High transparency lets the background breathe through */
-  backdrop-filter: blur(16px) saturate(160%) !important;
-  border: 1px solid rgba(255, 183, 197, 0.1) !important; /* Softened pink rim highlight */
-  box-shadow: 0 20px 50px rgba(12, 10, 14, 0.4);
+  background: rgba(18, 18, 18, 0.65) !important; /* Restored solid depth[cite: 7] */
+  backdrop-filter: blur(20px) saturate(180%) !important; /*[cite: 7] */
+  border: 1px solid rgba(255, 183, 197, 0.15) !important; /* Kept brightened pink card border highlight */
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6); /*[cite: 7] */
 }
 
 /* Fixes for small window layout compression */
@@ -58,11 +55,11 @@ h1.text-6xl {
 
 /* --- LEADERBOARD #1 CATCH & COLOR REMAP --- */
 
-/* Blended glass override for the #1 spot */
+/* Blended glass override for the #1 spot - Kept the clean custom pastel frame override */
 .bg-yellow-500\/5.border-yellow-500\/15 {
-  background: rgba(255, 183, 197, 0.05) !important;
-  border-color: rgba(255, 183, 197, 0.25) !important;
-  box-shadow: 0 0 30px rgba(255, 183, 197, 0.05) !important;
+  background: rgba(255, 183, 197, 0.08) !important;
+  border-color: rgba(255, 183, 197, 0.4) !important;
+  box-shadow: 0 0 30px rgba(255, 183, 197, 0.1) !important;
 }
 
 /* Remap the #1 spot text and badges to use a beautiful vibrant pastel blue instead of yellow */
@@ -72,22 +69,22 @@ h1.text-6xl {
 
 /* Remap the star circle badge icon from yellow-500 background/borders to pastel pink/blue */
 .bg-yellow-500\/10.border-yellow-500\/20 {
-  background-color: rgba(166, 227, 233, 0.1) !important;
-  border-color: rgba(166, 227, 233, 0.2) !important;
+  background-color: rgba(166, 227, 233, 0.15) !important;
+  border-color: rgba(166, 227, 233, 0.3) !important;
 }
 
 /* Remap the border accent on the leaderboard card block */
 .border-t-yellow-500\/20 {
-  border-top-color: rgba(166, 227, 233, 0.2) !important;
+  border-top-color: rgba(166, 227, 233, 0.3) !important;
 }
 
 /* --- END LEADERBOARD REMAP --- */
 
-/* Theme-Reactive Ambient Background Glow - Immersive, glowing atmosphere */
+/* Theme-Reactive Ambient Background Glow - High pop pink & blue gradient aura */
 div[className*="bg-thxbai-accent/12"] {
-  background: radial-gradient(circle at center, #ffb7c5 0%, #a6e3e9 100%) !important;
-  opacity: 0.28 !important; /* Amplified to illuminate the new violet canvas underneath */
-  filter: blur(120px) !important;
+  background: radial-gradient(circle, #ffb7c5 0%, #a6e3e9 100%) !important;
+  opacity: 0.22 !important; 
+  filter: blur(130px) !important;
 }
 
 /* Scrollbar tracking refinement mapped to Femboy Sky Blue */
@@ -99,10 +96,10 @@ div[className*="bg-thxbai-accent/12"] {
   border-radius: 10px;
 }
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: rgba(166, 227, 233, 0.25);
+  background: rgba(166, 227, 233, 0.3);
   border-radius: 10px;
   transition: background 0.2s ease;
 }
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: rgba(166, 227, 233, 0.5);
+  background: rgba(166, 227, 233, 0.6);
 }
