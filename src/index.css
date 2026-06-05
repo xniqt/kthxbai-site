@@ -2,36 +2,70 @@
 @import "tailwindcss";
 
 @theme {
-  /* Official thxbai color palette */
-  --color-thxbai-dark: #080808;      /* Deep black */
-  --color-thxbai-card: #121212;      /* Card background */
-  --color-thxbai-accent: #6366f1;    /* Signature Indigo */
+  --color-thxbai-dark: #080808;      /* Deep black background stays uniform */
+  --color-thxbai-card: #121212;      /* Card backgrounds stay uniform */
   --color-thxbai-muted: #a1a1aa;     /* Zinc text */
-  
-  /* Friendly, highly-readable Femboy community aesthetic font stacks */
   --font-sans: "Quicksand", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-display: "Fredoka", sans-serif;
 }
 
-/* Apply display font cleanly to headings without breaking container limits */
+/* Default Theme Variable (Signature Indigo) */
+:root {
+  --theme-accent: #6366f1;
+  --theme-glow: rgba(99, 102, 241, 0.12);
+  --theme-selection: rgba(99, 102, 241, 0.4);
+}
+
+/* Femboy Aesthetic Theme Variable (Pastel Pink) */
+.femboy-theme {
+  --theme-accent: #ffb7c5;
+  --theme-glow: rgba(255, 183, 197, 0.15);
+  --theme-selection: rgba(255, 183, 197, 0.4);
+}
+
+/* Dynamic utility mappings that follow the active theme variable */
+.text-thxbai-accent {
+  color: var(--theme-accent) !important;
+  transition: color 0.3s ease;
+}
+.bg-thxbai-accent {
+  background-color: var(--theme-accent) !important;
+  transition: background-color 0.3s ease;
+}
+.border-l-thxbai-accent {
+  border-left-color: var(--theme-accent) !important;
+  transition: border-color 0.3s ease;
+}
+.bg-thxbai-accent\/20 {
+  background-color: rgba(from var(--theme-accent) r g b / 0.2) !important;
+  transition: background-color 0.3s ease;
+}
+.border-thxbai-accent\/10 {
+  border-color: rgba(from var(--theme-accent) r g b / 0.1) !important;
+  transition: border-color 0.3s ease;
+}
+.shadow-thxbai-accent\/20 {
+  box-shadow: 0 10px 15px -3px rgba(from var(--theme-accent) r g b / 0.2) !important;
+}
+
+/* Global Heading Font Fallback */
 h1, h2, h3, .font-black {
   font-family: var(--font-display) !important;
 }
 
-/* Targeted structural fix for the brand header to resolve text overflow */
+/* Structural fix for smaller or un-maximized windows */
 h1.text-6xl {
-  font-size: clamp(2.5rem, 5vw, 3.5rem) !important; /* Uses fluid sizing depending on window scope */
-  letter-spacing: -0.04em !important;             /* Balanced kerning tracking */
-  line-height: 1 !important;
+  font-size: clamp(2.5rem, 4vw, 3.25rem) !important; /* Dynamically scales down if the window shrinks */
+  letter-spacing: -0.04em !important;
 }
 
-/* Global Selection Accent */
+/* Dynamic text selection highlight */
 ::selection {
-  background-color: rgba(99, 102, 241, 0.4);
+  background-color: var(--theme-selection);
   color: #ffffff;
 }
 
-/* Premium Card Base */
+/* Premium Glass Card Base */
 .glass-card {
   background: rgba(18, 18, 18, 0.65);
   backdrop-filter: blur(20px) saturate(180%);
@@ -39,7 +73,15 @@ h1.text-6xl {
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
 }
 
-/* Scrollbar refinement */
+/* Theme-reactive ambient background glow */
+.ambient-glow {
+  background-color: var(--theme-accent);
+  opacity: 0.12;
+  filter: blur(140px);
+  transition: background-color 0.5s ease;
+}
+
+/* Scrollbar tracking refinement */
 .custom-scrollbar::-webkit-scrollbar {
   width: 5px;
 }
@@ -48,10 +90,10 @@ h1.text-6xl {
   border-radius: 10px;
 }
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: rgba(99, 102, 241, 0.25);
+  background: rgba(from var(--theme-accent) r g b / 0.25);
   border-radius: 10px;
   transition: background 0.2s ease;
 }
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: rgba(99, 102, 241, 0.5);
+  background: rgba(from var(--theme-accent) r g b / 0.5);
 }
