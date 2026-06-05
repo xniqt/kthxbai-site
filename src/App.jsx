@@ -38,17 +38,24 @@ const volumeTaskMap = { 1: tasksVol1, 2: tasksVol2, 3: tasksVol3 };
   };
 
   // Generate sorted leaderboard based on active volume mapping data context
-  const leaderboard = factionsData
-    .map((faction) => {
-      const logsMap = { 1: faction.completedVol1, 2: faction.completedVol2, 3: faction.completedVol3 };
-      const activeLogs = logsMap[activeVolume] || [];
-      return {
-        ...faction,
-        score: calculateScore(activeLogs, currentTasks),
-        activeLogs
-      };
-    })
-    .sort((a, b) => b.score - a.score);
+const leaderboard = factionsData
+  .map((faction) => {
+    const logsMap = { 1: faction.completedVol1, 2: faction.completedVol2, 3: faction.completedVol3 };
+    const activeLogs = logsMap[activeVolume] || [];
+    
+    // Dynamically calculate individual volume segments right here
+    const score1 = calculateScore(faction.completedVol1, tasksVol1);
+    const score2 = calculateScore(faction.completedVol2, tasksVol2);
+    const score3 = calculateScore(faction.completedVol3, tasksVol3);
+    
+    return {
+      ...faction,
+      score: calculateScore(activeLogs, currentTasks),
+      grandTotal: score1 + score2 + score3, // Attaches season grand total
+      activeLogs
+    };
+  })
+  .sort((a, b) => b.score - a.score);
 
   // DYNAMIC ALL-TIME COMBINED SCORES
   const cumulativeStandings = factionsData
@@ -132,50 +139,6 @@ const volumeTaskMap = { 1: tasksVol1, 2: tasksVol2, 3: tasksVol3 };
           </span>
         </div>
       </motion.div>
-
-        {/* ONGOING EVENT / BIO WITH DYNAMIC TOTAL LEADERBOARD */}
-        <motion.div className="md:col-span-12 glass-card rounded-[3rem] p-12 min-h-[420px] flex flex-col justify-between border-l-4 border-l-thxbai-accent">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            
-            {/* Left Column: Description info */}
-            <div className="lg:col-span-7">
-              <div className="flex items-center gap-3 mb-6 select-none">
-                <span className="px-3 py-1 rounded-full bg-thxbai-accent/20 text-thxbai-accent text-[10px] font-black uppercase tracking-widest border border-thxbai-accent/10">Ongoing Event</span>
-                <span className="text-thxbai-muted text-[10px] font-bold uppercase tracking-widest">Nitro Reward</span>
-              </div>
-              <h3 className="text-5xl font-black leading-[1.1] mb-6 tracking-tighter italic text-white uppercase select-none">Volume {activeVolume} <br /> Objectives.</h3>
-              <p className="text-thxbai-muted text-md max-w-xl font-medium leading-relaxed mb-4">
-                {activeVolume === 1 && "The original race to dominance. Complete all 20 standard Vanilla tasks."}
-                {activeVolume === 2 && "The advanced phase. Tiered difficulty levels ranging from collection to complex automation finds."}
-                {activeVolume === 3 && "The final frontier. End-game grinds, structural feats, and massive scale collection logistics."}
-              </p>
-            </div>
-
-            {/* Right Column: Combined Season Standings */}
-            <div className="lg:col-span-5 bg-white/[0.02] border border-white/5 rounded-[2rem] p-6 w-full">
-              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-thxbai-accent block mb-4">Season All-Time Combined Score</span>
-              <div className="space-y-3">
-                {cumulativeStandings.map((team, index) => (
-                  <div key={team.name} className="flex justify-between items-center bg-white/[0.02] px-4 py-2.5 rounded-xl border border-white/5">
-                    <div className="flex items-center gap-3">
-                      <span className={`text-xs font-black italic ${index === 0 ? "text-yellow-500" : "text-thxbai-muted/50"}`}>#{index + 1}</span>
-                      <span className="text-sm font-bold text-white/90">{team.name}</span>
-                    </div>
-                    <span className="text-sm font-black text-thxbai-accent">{team.grandTotal} <span className="text-[9px] text-thxbai-muted font-normal tracking-wide not-italic ml-0.5">pts</span></span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-          </div>
-
-          <div className="border-t border-white/5 pt-6 mt-6">
-            <span className="block text-[10px] font-black text-thxbai-accent uppercase mb-2 italic underline tracking-wider select-none">Admin Tip</span>
-            <p className="text-[12px] text-thxbai-muted italic leading-relaxed max-w-3xl">
-              As we no longer have the faction mod in place(rip in peace), please ensure you post a screenshot in this channel when a task is completed so it can be manually logged! Do also make sure that you do not group up with more than 4 people(1 leader + 3 members).
-            </p>
-          </div>
-        </motion.div>
 
         {/* LEADERBOARD CARD */}
         <motion.div className="md:col-span-12 glass-card rounded-[3rem] p-10 border-t-4 border-t-yellow-500/20 shadow-xl">
