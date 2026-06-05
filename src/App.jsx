@@ -57,19 +57,6 @@ const leaderboard = factionsData
   })
   .sort((a, b) => b.score - a.score);
 
-  // DYNAMIC ALL-TIME COMBINED SCORES
-  const cumulativeStandings = factionsData
-    .map((faction) => {
-      const score1 = calculateScore(faction.completedVol1, tasksVol1);
-      const score2 = calculateScore(faction.completedVol2, tasksVol2);
-      const score3 = calculateScore(faction.completedVol3, tasksVol3);
-      return {
-        name: faction.name,
-        grandTotal: score1 + score2 + score3
-      };
-    })
-    .sort((a, b) => b.grandTotal - a.grandTotal);
-
   const [totalMembers, setTotalMembers] = useState(0);
   const [mcPlayers, setMcPlayers] = useState({ online: 0, max: 0 });
   const [selectedFaction, setSelectedFaction] = useState(leaderboard[0]?.name || "");
@@ -167,10 +154,22 @@ const leaderboard = factionsData
                     </div>
                   </div>
                 </div>
-                <div className="text-right flex flex-col items-end w-full md:w-auto border-t md:border-t-0 border-white/5 pt-4 md:pt-0">
+                <div className="flex gap-6 items-center w-full md:w-auto justify-between md:justify-end border-t md:border-t-0 border-white/5 pt-4 md:pt-0">
+                {/* Active Volume Segment */}
+                <div className="text-right flex flex-col items-end">
                   <span className={`text-4xl font-black italic block leading-none ${idx === 0 ? 'text-yellow-500' : 'text-white'}`}>{faction.score}</span>
-                  <span className="text-[10px] font-black text-thxbai-muted uppercase tracking-[0.2em] mt-1.5 opacity-60">Total Points</span>
+                  <span className="text-[9px] font-black text-thxbai-muted uppercase tracking-[0.1em] mt-1 opacity-50">Vol. {activeVolume} Pts</span>
                 </div>
+                
+                {/* Decorative divider line between points */}
+                <div className="hidden md:block h-8 w-[1px] bg-white/10" />
+
+                {/* Integrated Season High Score Segment */}
+                <div className="text-right flex flex-col items-end">
+                  <span className="text-4xl font-black italic block leading-none text-thxbai-accent">{faction.grandTotal}</span>
+                  <span className="text-[9px] font-black text-thxbai-accent uppercase tracking-[0.1em] mt-1 opacity-80">Season Total</span>
+                </div>
+              </div>
               </div>
             ))}
           </div>
