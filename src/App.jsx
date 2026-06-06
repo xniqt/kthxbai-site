@@ -277,6 +277,22 @@ const leaderboard = factionsData
           )}
         </motion.div>
 
+        {/* LIVE SERVER MAP CARD BUTTON */}
+        <motion.a 
+          href="http://map.kthxbai.xyz:8123" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="md:col-span-12 glass-card rounded-[2.5rem] p-10 flex items-center justify-between group transition-all duration-300 hover:bg-thxbai-accent/[0.02]">
+          <div>
+            <span className="text-xs font-bold text-thxbai-accent uppercase tracking-[0.2em] block mb-1">Live Tracking</span>
+            <span className="text-3xl font-black italic block uppercase tracking-wide">Interactive Map</span>
+            <span className="text-xs text-thxbai-muted font-bold uppercase tracking-widest mt-2 flex items-center gap-1.5 opacity-60 select-none">
+              <span className="w-1.5 h-1.5 bg-thxbai-accent rounded-full animate-pulse" /> Watch operations unfold in real time
+            </span>
+          </div>
+          <div className="w-16 h-16 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-black group-hover:border-white transition-all duration-300 text-xl font-bold">→</div>
+        </motion.a>
+
         {/* Discord Link */}
         <motion.a href={DISCORD_INVITE_LINK} target="_blank" rel="noopener noreferrer" className="md:col-span-12 glass-card rounded-[2.5rem] p-10 flex items-center justify-between group transition-all duration-300 hover:bg-thxbai-accent/[0.02]">
           <div>
