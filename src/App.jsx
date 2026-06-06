@@ -277,21 +277,33 @@ const leaderboard = factionsData
           )}
         </motion.div>
 
-        {/* LIVE SERVER MAP CARD BUTTON */}
-        <motion.a 
-          href="http://map.kthxbai.xyz:8123" 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          className="md:col-span-12 glass-card rounded-[2.5rem] p-10 flex items-center justify-between group transition-all duration-300 hover:bg-thxbai-accent/[0.02]">
-          <div>
-            <span className="text-xs font-bold text-thxbai-accent uppercase tracking-[0.2em] block mb-1">Live Tracking</span>
-            <span className="text-3xl font-black italic block uppercase tracking-wide">Interactive Map</span>
-            <span className="text-xs text-thxbai-muted font-bold uppercase tracking-widest mt-2 flex items-center gap-1.5 opacity-60 select-none">
-              <span className="w-1.5 h-1.5 bg-thxbai-accent rounded-full animate-pulse" /> Watch operations unfold in real time
+        {/* EMBEDDED IMMERSIVE LIVE BLUEMAP VIEWER */}
+        <motion.div 
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="md:col-span-12 glass-card rounded-[3rem] p-4 sm:p-6 overflow-hidden h-[550px] border-l-4 border-l-femboy-blue flex flex-col">
+          {/* Map Section Header Meta */}
+          <div className="flex items-center justify-between mb-4 px-2 select-none">
+            <div>
+              <h3 className="text-xl font-black italic uppercase tracking-tight text-white">Live Operations Map</h3>
+              <p className="text-thxbai-muted text-[10px] font-bold uppercase tracking-widest opacity-60">Real-time World Analytics</p>
+            </div>
+            <span className="flex items-center gap-2 text-[10px] uppercase font-black text-green-500 tracking-[0.2em]">
+              <span className="w-2 h-2 bg-green-500 rounded-full animate-ping" /> Synchronized
             </span>
           </div>
-          <div className="w-16 h-16 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-black group-hover:border-white transition-all duration-300 text-xl font-bold">→</div>
-        </motion.a>
+
+          {/* The Live Interactive Frame Container */}
+          <div className="w-full flex-1 rounded-[2rem] overflow-hidden border border-white/5 bg-black/20 relative">
+            <iframe 
+              src="https://map.kthxbai.xyz" 
+              title="Femboy SMP Live Operations Map"
+              className="absolute inset-0 w-full h-full border-none"
+              allow="fullscreen"
+              sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
+            />
+          </div>
+        </motion.div>
 
         {/* Discord Link */}
         <motion.a href={DISCORD_INVITE_LINK} target="_blank" rel="noopener noreferrer" className="md:col-span-12 glass-card rounded-[2.5rem] p-10 flex items-center justify-between group transition-all duration-300 hover:bg-thxbai-accent/[0.02]">
