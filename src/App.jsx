@@ -285,7 +285,7 @@ const leaderboard = factionsData
           {/* Map Section Header Meta */}
           <div className="flex items-center justify-between mb-4 px-2 select-none">
             <div>
-              <h3 className="text-xl font-black italic uppercase tracking-tight text-white">Live Operations Map</h3>
+              <h3 className="text-xl font-black italic uppercase tracking-tight text-white">Live Map</h3>
               <p className="text-thxbai-muted text-[10px] font-bold uppercase tracking-widest opacity-60">Real-time World Analytics</p>
             </div>
             <span className="flex items-center gap-2 text-[10px] uppercase font-black text-green-500 tracking-[0.2em]">
@@ -297,7 +297,7 @@ const leaderboard = factionsData
           <div className="w-full flex-1 rounded-[2rem] overflow-hidden border border-white/5 bg-black/20 relative">
             <iframe 
               src="https://map.kthxbai.xyz" 
-              title="Femboy SMP Live Operations Map"
+              title="Femboy SMP Live Map"
               className="absolute inset-0 w-full h-full border-none"
               allow="fullscreen"
               sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
