@@ -12,7 +12,7 @@ export const factionsData = [
     members: ["xniqt", "ChaosTwinRylee"], 
     completedVol1: ["hq", "tame", "banner", "rod", "bee", "redstone", "heart", "ender", "farm", "map", "egg", "axolotl"],
     completedVol2: [],
-    completedVol3: []
+    completedVol3: ["sorting_system"]
   },
   { 
     name: "melon", 
