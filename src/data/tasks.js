@@ -54,7 +54,7 @@ export const tasksVol2 = [
 ];
 
 export const tasksVol3 = [
-  { id: "all_trims", name: "20 Unique Armor Trims", pts: 30, tier: "Tier 1", desc: "Collect and display all 20 unique armor trims on armor stands." },
+  { id: "all_trims", name: "20 Unique Armor Trims", pts: 30, tier: "Tier 1", desc: "Collect and display all 18 unique armor trims on armor stands." },
   { id: "all_signs", name: "11 Wood Sign Variants Line", pts: 30, tier: "Tier 1", desc: "Place all 11 types of Wood Signs in a line, each labeled with its wood type." },
   { id: "all_banners", name: "Every Banner Pattern", pts: 30, tier: "Tier 1", desc: "Collect and display 1 of every single pattern variant of Banner." },
   { id: "raw_ore_blocks", name: "Full Chest of Raw Ore Blocks", pts: 30, tier: "Tier 1", desc: "Obtain a stack (64) of Raw Iron, Gold, and Copper Blocks in a single chest." },
