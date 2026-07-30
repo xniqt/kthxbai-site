@@ -41,10 +41,10 @@ export default function App() {
         <motion.div className="md:col-span-6 glass-card rounded-[2.5rem] p-8 flex flex-col justify-between">
           <div>
             <span className="text-[10px] font-black text-thxbai-accent uppercase tracking-widest block mb-2">Current Vibe</span>
-            <h2 className="text-2xl font-bold tracking-tight text-white mb-4">Active Operations</h2>
+            <h2 className="text-2xl font-bold tracking-tight text-white mb-4">Active Events</h2>
             <ul className="space-y-3 text-sm text-thxbai-muted font-medium">
               <li className="flex items-center gap-3">
-                <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span> Minecraft (Casual Build)
+                <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span> Minecraft (Casual Survival)
               </li>
               <li className="flex items-center gap-3">
                 <span className="w-2.5 h-2.5 rounded-full bg-femboy-blue"></span> Voice Hangouts & Movie Nights
@@ -80,7 +80,7 @@ export default function App() {
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
             <div>
               <span className="text-[10px] font-black text-thxbai-muted uppercase tracking-widest block opacity-60">Hall of Fame</span>
-              <h3 className="text-xl font-bold tracking-tight text-white mt-1">Season 1: Femboy SMP — Concluded</h3>
+              <h3 className="text-xl font-bold tracking-tight text-white mt-1">Season 1: Femboy SMP - Faction event concluded</h3>
             </div>
             <div className="flex items-center gap-2 text-xs font-black text-thxbai-accent bg-thxbai-accent/10 px-4 py-2 rounded-xl">
               🏆 Champions: Faction Melon
