@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
+import "./index.css"; // Ensures styles strictly load with App
 
 export default function App() {
   const DISCORD_INVITE_CODE = "femboy";
